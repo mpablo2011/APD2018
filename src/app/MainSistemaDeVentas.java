@@ -1,15 +1,41 @@
 package app;
 
-import Views.MainView;
+import java.util.Collection;
+
+import bean.Cliente;
 
 public class MainSistemaDeVentas {
+	
+	private Collection<Cliente> clientes;
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		MainView main = new MainView();
+	private static MainSistemaDeVentas instancia;
+
+	public static MainSistemaDeVentas getInstancia() {
+		if (instancia == null) {
+			instancia = new MainSistemaDeVentas();
+		}
+		return instancia;
+	}
+
+	public Collection<Cliente> getClientes() {
+		return clientes;
+	}
+
+	public void addCliente(Cliente cliente) {
+		clientes.add(cliente);
+	}
+	
+	public int altaCliente(int dni, String nombre, int telefono, String mail) {
 		
-		main.setVisible(true);
-
+		Cliente cli = new Cliente();
+		cli.setDni(dni);
+		cli.setMail(mail);
+		cli.setNombre(nombre);
+		cli.setTelefono(telefono);
+		
+		clientes.add(cli);
+		
+		return 1;
 	}
 
 }

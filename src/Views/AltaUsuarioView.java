@@ -6,11 +6,20 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import app.MainSistemaDeVentas;
+import bean.Cliente;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.FlowLayout;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JDialog;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -86,6 +95,40 @@ public class AltaUsuarioView extends JFrame {
 		contentPane.add(mailField);
 		
 		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			MainSistemaDeVentas msv = MainSistemaDeVentas.getInstancia();
+
+			String dniStr = dniField.getText();
+			String mail = mailField.getText();
+			String nombre = nombreField.getText();
+			String telefonoStr = telefonoField.getText();
+
+			if (dniStr.isEmpty() || mail.isEmpty() || nombre.isEmpty() || telefonoStr.isEmpty()) {
+            	JOptionPane pane = new JOptionPane("Complete Todos los campos");
+            	pane.setBackground(Color.RED);
+                JDialog d = pane.createDialog(new JFrame(), "OK");
+                d.setLocation(100,100);
+                d.setVisible(true);
+			}
+			else {
+				
+				int dni = Integer.parseInt(dniField.getText());
+				int telefono = Integer.parseInt(telefonoField.getText());
+				
+				int resultado = msv.altaCliente(dni, nombre, telefono, mail);
+				
+				if (resultado == 1) {
+	            	JOptionPane pane = new JOptionPane("Usuario dado de alta de forma correcta");
+	            	pane.setBackground(Color.GREEN);
+	                JDialog d = pane.createDialog(new JFrame(), "OK");
+	                d.setLocation(100,100);
+	                d.setVisible(true);
+				}
+			}
+			
+			}
+		});
 		btnAceptar.setBounds(218, 170, 97, 25);
 		contentPane.add(btnAceptar);
 		
