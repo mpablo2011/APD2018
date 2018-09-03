@@ -63,7 +63,26 @@ public class MainView extends JFrame {
 		menuBar.add(mnNewMenu);
 		
 		JMenuItem mntmAltaProducto = new JMenuItem("Alta producto");
+		mntmAltaProducto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				AltaProductosView auv = new AltaProductosView();
+				auv.setVisible(true);
+				MainView.this.setVisible(false);
+				
+			}
+		});
 		mnNewMenu.add(mntmAltaProducto);
+		
+		JMenuItem mntmAltaPaquete = new JMenuItem("Alta paquete");
+		mntmAltaPaquete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				AltaPaquetesView auv = new AltaPaquetesView();
+				auv.setVisible(true);
+				MainView.this.setVisible(false);
+				
+			}
+		});
+		mnNewMenu.add(mntmAltaPaquete);
 		
 		JMenu mnNewMenu_1 = new JMenu("Ventas");
 		menuBar.add(mnNewMenu_1);

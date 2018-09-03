@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 
-public class AltaProductoView extends JFrame {
+public class AltaProductosView extends JFrame {
 
 	private JPanel contentPane;
 
@@ -23,7 +23,7 @@ public class AltaProductoView extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AltaProductoView frame = new AltaProductoView();
+					AltaProductosView frame = new AltaProductosView();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -35,7 +35,7 @@ public class AltaProductoView extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public AltaProductoView() {
+	public AltaProductosView() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -60,21 +60,21 @@ public class AltaProductoView extends JFrame {
             	 {
             		AltaPasajesView view = new AltaPasajesView();
             		view.setVisible(true);
-            		AltaProductoView.this.setVisible(false);
+            		AltaProductosView.this.setVisible(false);
             	 }
             	 
             	 if (tipo.equals("Alojamiento"))
             	 {
             		AltaAlojamientosView view = new AltaAlojamientosView();
              		view.setVisible(true);
-             		AltaProductoView.this.setVisible(false);
+             		AltaProductosView.this.setVisible(false);
             	 }
             	 
             	 if (tipo.equals("Visitas Turisticas"))
             	 {
             		AltaVisitasView view = new AltaVisitasView();
               		view.setVisible(true);
-              		AltaProductoView.this.setVisible(false);
+              		AltaProductosView.this.setVisible(false);
             	 }
             	        
              }

@@ -91,7 +91,7 @@ public class AltaVisitasView extends JFrame {
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				AltaVisitasView.this.setVisible(false);
-				AltaProductoView view = new AltaProductoView();
+				AltaProductosView view = new AltaProductosView();
          		view.setVisible(true);
 			}
 		});
