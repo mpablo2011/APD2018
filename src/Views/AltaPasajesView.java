@@ -115,6 +115,7 @@ public class AltaPasajesView extends JFrame {
          		view.setVisible(true);
 			}
 		});
+		
 		btnCancelar.setBounds(177, 214, 89, 23);
 		contentPane.add(btnCancelar);
 	}

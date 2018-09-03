@@ -11,6 +11,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
+import javax.swing.JButton;
 
 public class AltaProductosView extends JFrame {
 
@@ -83,5 +84,16 @@ public class AltaProductosView extends JFrame {
 		JLabel lblTipo = new JLabel("Tipo:");
 		lblTipo.setBounds(31, 49, 46, 14);
 		contentPane.add(lblTipo);
+		
+		JButton btnVolver = new JButton("Volver");
+		btnVolver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AltaProductosView.this.setVisible(false);
+				MainView view = new MainView();
+				view.setVisible(true);
+			}
+		});
+		btnVolver.setBounds(125, 147, 89, 23);
+		contentPane.add(btnVolver);
 	}
 }
