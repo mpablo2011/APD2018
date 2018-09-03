@@ -10,8 +10,8 @@ public class Productos {
 	
 	}
 	
-	public void getProducto(int codigoProducto) {
-	
+	public int getCodigoProducto() {
+		return this.codigoProducto;
 	}
 	
 	public ProductoView getView()

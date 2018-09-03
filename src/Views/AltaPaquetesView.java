@@ -109,7 +109,7 @@ public class AltaPaquetesView extends JFrame {
 		contentPane.add(lblIngreseLosDatos);
 
 		JButton btnBuscar = new JButton("Buscar Producto");
-		btnBuscar.setBounds(288, 162, 130, 29);
+		btnBuscar.setBounds(288, 165, 130, 29);
 		contentPane.add(btnBuscar);
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
