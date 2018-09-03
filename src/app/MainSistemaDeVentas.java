@@ -4,10 +4,15 @@ import java.util.Collection;
 
 import bean.Cliente;
 import bean.ListClientes;
+import bean.ListProductos;
+import bean.Productos;
+import bean.Views.ProductoView;
+import srv.ProductoSRV;
 
 public class MainSistemaDeVentas {
 	
 	private ListClientes clientes;
+	private ListProductos productos;
 
 	private static MainSistemaDeVentas instancia;
 
@@ -20,6 +25,7 @@ public class MainSistemaDeVentas {
 	
 	private MainSistemaDeVentas() {
 		clientes = new ListClientes();
+		productos = new ListProductos();
 	}
 
 	public ListClientes getClientes() {
@@ -47,6 +53,11 @@ public class MainSistemaDeVentas {
 		{
 			return -1;
 		}
+	}
+	
+	public ProductoView getProducto(int id) {
+		Productos producto = new ProductoSRV().getProductoPorId(id);
+		return producto.getView();		
 	}
 
 }

@@ -15,6 +15,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import app.MainSistemaDeVentas;
+
 
 
 public class AltaPaquetesView extends JFrame {
@@ -25,7 +27,8 @@ public class AltaPaquetesView extends JFrame {
 	private static final long serialVersionUID = -1001316259881786173L;
 
 	private JPanel contentPane;
-	private JTextField textFieldAlumno;	
+	private JTextField textFieldDesc;
+	private MainSistemaDeVentas sis = MainSistemaDeVentas.getInstancia();
 
 	/**
 	 * Launch the application.
@@ -43,8 +46,15 @@ public class AltaPaquetesView extends JFrame {
 		});
 	}
 
-	private JTextField textFieldCarrera;
-	private JTextField textField;
+	private JTextField textFieldDescuento;
+	private JTextField textFieldProducto;
+	
+	private static AltaPaquetesView instancia;
+	public static AltaPaquetesView getInstancia() {
+		if (instancia == null)
+			instancia = new AltaPaquetesView();
+		return instancia;
+	}
 
 	/**
 	 * Create the frame.
@@ -61,10 +71,10 @@ public class AltaPaquetesView extends JFrame {
 		lblAlumno.setBounds(28, 73, 61, 16);
 		contentPane.add(lblAlumno);
 
-		textFieldAlumno = new JTextField();
-		textFieldAlumno.setBounds(135, 68, 130, 26);
-		contentPane.add(textFieldAlumno);
-		textFieldAlumno.setColumns(10);
+		textFieldDesc = new JTextField();
+		textFieldDesc.setBounds(135, 68, 130, 26);
+		contentPane.add(textFieldDesc);
+		textFieldDesc.setColumns(10);
 
 		JButton btnRealizarAlta = new JButton("Realizar alta");
 		btnRealizarAlta.setBounds(59, 300, 117, 29);
@@ -88,10 +98,10 @@ public class AltaPaquetesView extends JFrame {
 		lblCarrera.setBounds(28, 124, 74, 16);
 		contentPane.add(lblCarrera);
 
-		textFieldCarrera = new JTextField();
-		textFieldCarrera.setBounds(135, 119, 130, 26);
-		contentPane.add(textFieldCarrera);
-		textFieldCarrera.setColumns(10);
+		textFieldDescuento = new JTextField();
+		textFieldDescuento.setBounds(135, 119, 130, 26);
+		contentPane.add(textFieldDescuento);
+		textFieldDescuento.setColumns(10);
 
 		JLabel lblIngreseLosDatos = new JLabel("Ingrese los datos para generar el paquete");
 		lblIngreseLosDatos.setFont(new Font("Lucida Grande", Font.BOLD, 13));
@@ -103,7 +113,13 @@ public class AltaPaquetesView extends JFrame {
 		contentPane.add(btnBuscar);
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				try {
+					sis.getProducto(Integer.parseInt(textFieldProducto.getText()));
+					JOptionPane.showMessageDialog(instancia, "Alumno encontrado, puede agregar materias.");
+					textFieldDesc.setEditable(false);
+				} catch (Exception e2) {
+					JOptionPane.showMessageDialog(instancia, "No existe el alumno.");
+				}
 			}
 		});
 
@@ -115,10 +131,10 @@ public class AltaPaquetesView extends JFrame {
 		lblProducto.setBounds(30, 169, 72, 14);
 		contentPane.add(lblProducto);
 		
-		textField = new JTextField();
-		textField.setColumns(10);
-		textField.setBounds(135, 166, 130, 26);
-		contentPane.add(textField);
+		textFieldProducto = new JTextField();
+		textFieldProducto.setColumns(10);
+		textFieldProducto.setBounds(135, 166, 130, 26);
+		contentPane.add(textFieldProducto);
 		btnAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
