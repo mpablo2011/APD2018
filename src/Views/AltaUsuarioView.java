@@ -105,7 +105,7 @@ public class AltaUsuarioView extends JFrame {
 			String telefonoStr = telefonoField.getText();
 
 			if (dniStr.isEmpty() || mail.isEmpty() || nombre.isEmpty() || telefonoStr.isEmpty()) {
-            	JOptionPane pane = new JOptionPane("Complete Todos los campos");
+            	JOptionPane pane = new JOptionPane("Complete todos los campos");
             	pane.setBackground(Color.RED);
                 JDialog d = pane.createDialog(new JFrame(), "OK");
                 d.setLocation(100,100);

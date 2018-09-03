@@ -49,4 +49,19 @@ public class MainSistemaDeVentas {
 		}
 	}
 
+	public int bajaCliente(int dni) {
+
+		Cliente cli = clientes.getClientePorDNI(dni);
+		
+		if(cli.equals(null))
+		{	
+			return -1;
+		}
+		else
+		{
+			clientes.removeCliente(cli);
+			return 1;
+		}
+	}
+
 }

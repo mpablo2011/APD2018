@@ -42,10 +42,10 @@ public class MainView extends JFrame {
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
-		JMenu mnMenu = new JMenu("Usuarios");
+		JMenu mnMenu = new JMenu("Clientes");
 		menuBar.add(mnMenu);
 		
-		JMenuItem mntmAltaDeUsuarios = new JMenuItem("Alta de usuario");
+		JMenuItem mntmAltaDeUsuarios = new JMenuItem("Alta de Cliente");
 		mntmAltaDeUsuarios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				AltaUsuarioView auv = new AltaUsuarioView();
@@ -56,7 +56,7 @@ public class MainView extends JFrame {
 		});
 		mnMenu.add(mntmAltaDeUsuarios);
 		
-		JMenuItem mntmBajaDeUsuarios = new JMenuItem("Baja de usuario");
+		JMenuItem mntmBajaDeUsuarios = new JMenuItem("Baja de cliente");
 		mnMenu.add(mntmBajaDeUsuarios);
 		
 		JMenu mnNewMenu = new JMenu("Productos");
@@ -90,7 +90,7 @@ public class MainView extends JFrame {
 		JMenuItem mntmNuevaVenta = new JMenuItem("Nueva Venta");
 		mnNewMenu_1.add(mntmNuevaVenta);
 		
-		JMenuItem mntmListarVtasX = new JMenuItem("Ventas por usuario");
+		JMenuItem mntmListarVtasX = new JMenuItem("Ventas por cliente");
 		mnNewMenu_1.add(mntmListarVtasX);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
