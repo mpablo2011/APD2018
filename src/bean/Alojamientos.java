@@ -9,4 +9,5 @@ public class Alojamientos extends Productos {
 	public Date FechaHasta;
 	public Float precio;
 	public String ubicacion;
+	public String test;
 }
