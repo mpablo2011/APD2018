@@ -125,6 +125,14 @@ public class AltaUsuarioView extends JFrame {
 	                d.setLocation(100,100);
 	                d.setVisible(true);
 				}
+				if (resultado == -1) {
+	            	JOptionPane pane = new JOptionPane("El cliente ya existe");
+	            	pane.setBackground(Color.RED);
+	                JDialog d = pane.createDialog(new JFrame(), "OK");
+	                d.setLocation(100,100);
+	                d.setVisible(true);
+				}
+				
 			}
 			
 			}

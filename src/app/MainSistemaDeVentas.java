@@ -3,10 +3,11 @@ package app;
 import java.util.Collection;
 
 import bean.Cliente;
+import bean.ListClientes;
 
 public class MainSistemaDeVentas {
 	
-	private Collection<Cliente> clientes;
+	private ListClientes clientes;
 
 	private static MainSistemaDeVentas instancia;
 
@@ -16,26 +17,36 @@ public class MainSistemaDeVentas {
 		}
 		return instancia;
 	}
+	
+	private MainSistemaDeVentas() {
+		clientes = new ListClientes();
+	}
 
-	public Collection<Cliente> getClientes() {
+	public ListClientes getClientes() {
 		return clientes;
 	}
 
 	public void addCliente(Cliente cliente) {
-		clientes.add(cliente);
+		clientes.addCliente(cliente);
 	}
 	
 	public int altaCliente(int dni, String nombre, int telefono, String mail) {
 		
-		Cliente cli = new Cliente();
-		cli.setDni(dni);
-		cli.setMail(mail);
-		cli.setNombre(nombre);
-		cli.setTelefono(telefono);
-		
-		clientes.add(cli);
-		
-		return 1;
+		if(!clientes.existeCliente(dni))
+		{
+			Cliente cli = new Cliente();
+			cli.setDni(dni);
+			cli.setMail(mail);
+			cli.setNombre(nombre);
+			cli.setTelefono(telefono);
+			
+			clientes.addCliente(cli);
+			return 1;
+		}
+		else
+		{
+			return -1;
+		}
 	}
 
 }
