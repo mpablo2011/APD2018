@@ -130,13 +130,13 @@ public class MainSistemaDeVentas {
 		
 	}
 	
-	public void grabarVisita(String descripcion, String fecha, String nombre, float precio)
+	public void grabarVisita(String descripcion, String fecha, String nombre,String ubicacion,float precio)
 	{
 		try
 		{			
 			SimpleDateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");	        
 	         
-			Productos producto = new VisitasTuristicas(descripcion,formatter.parse(fecha), nombre,precio);
+			Productos producto = new VisitasTuristicas(descripcion,formatter.parse(fecha),nombre,ubicacion,precio);
 			
 			ProductoSRV srv = new ProductoSRV();
 			

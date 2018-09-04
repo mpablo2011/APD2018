@@ -21,9 +21,13 @@ public class VisitasTuristicas extends Productos {
 		
 	}
 	
-	public VisitasTuristicas(String descripcion,Date fecha,String nombre,float precio)
+	public VisitasTuristicas(String descripcion,Date fecha,String nombre,String ubicacion,float precio)
 	{
-		
+		this.descripcion = descripcion;
+		this.fecha = fecha; 
+		this.nombreGuia = nombre;
+		this.ubicacion = ubicacion;
+		this.precio = precio;
 	}
 	
 	@Override

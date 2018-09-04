@@ -24,6 +24,7 @@ public class AltaVisitasView extends JFrame {
 	private JTextField textFieldPrecio;
 	
 	private MainSistemaDeVentas sis = MainSistemaDeVentas.getInstancia();
+	private JTextField textFieldUbicacion;
 
 	/**
 	 * Launch the application.
@@ -64,8 +65,8 @@ public class AltaVisitasView extends JFrame {
 		lblNombreGuia.setBounds(21, 79, 85, 14);
 		contentPane.add(lblNombreGuia);
 		
-		JLabel lblPrecio = new JLabel("Precio");
-		lblPrecio.setBounds(21, 104, 72, 14);
+		JLabel lblPrecio = new JLabel("Precio:");
+		lblPrecio.setBounds(22, 129, 72, 14);
 		contentPane.add(lblPrecio);
 		
 		textFieldDesc = new JTextField();
@@ -85,14 +86,14 @@ public class AltaVisitasView extends JFrame {
 		
 		textFieldPrecio = new JTextField();
 		textFieldPrecio.setColumns(10);
-		textFieldPrecio.setBounds(124, 101, 142, 20);
+		textFieldPrecio.setBounds(124, 128, 142, 20);
 		contentPane.add(textFieldPrecio);
 		
 		JButton btnAceptar = new JButton("Aceptar");
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				sis.grabarVisita(textFieldDesc.getText(),textFieldFecha.getText(),
-								 textFieldNombre.getText(),Float.parseFloat(textFieldPrecio.getText()));
+								 textFieldNombre.getText(),textFieldUbicacion.getText(),Float.parseFloat(textFieldPrecio.getText()));
 			}
 		});
 		btnAceptar.setBounds(52, 210, 89, 23);
@@ -108,6 +109,14 @@ public class AltaVisitasView extends JFrame {
 		});
 		btnCancelar.setBounds(178, 210, 89, 23);
 		contentPane.add(btnCancelar);
+		
+		JLabel lblUbicacion = new JLabel("Ubicacion: ");
+		lblUbicacion.setBounds(20, 104, 73, 14);
+		contentPane.add(lblUbicacion);
+		
+		textFieldUbicacion = new JTextField();
+		textFieldUbicacion.setBounds(124, 101, 142, 20);
+		contentPane.add(textFieldUbicacion);
+		textFieldUbicacion.setColumns(10);
 	}
-
 }
