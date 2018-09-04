@@ -16,6 +16,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import app.MainSistemaDeVentas;
+import bean.Views.PaqueteView;
 
 
 
@@ -29,6 +30,7 @@ public class AltaPaquetesView extends JFrame {
 	private JPanel contentPane;
 	private JTextField textFieldDesc;
 	private MainSistemaDeVentas sis = MainSistemaDeVentas.getInstancia();
+	private PaqueteView paqueteView = new PaqueteView();
 
 	/**
 	 * Launch the application.
@@ -81,7 +83,13 @@ public class AltaPaquetesView extends JFrame {
 		contentPane.add(btnRealizarAlta);
 		btnRealizarAlta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				if ( !textFieldDesc.getText().equals("") && !textFieldDescuento.getText().equals(""))
+				{
+					paqueteView.setDescripcion(textFieldDesc.getText());
+					paqueteView.setDescuento(Integer.parseInt(textFieldDescuento.getText()));
+				}
+				else
+					JOptionPane.showMessageDialog(instancia, "Debe Completar el formulario");
 			}
 		});
 
@@ -90,7 +98,9 @@ public class AltaPaquetesView extends JFrame {
 		contentPane.add(btnCancelar);
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				MainView view = new MainView();
+				view.setVisible(true);
+				AltaPaquetesView.this.setVisible(false);
 			}
 		});
 
@@ -108,23 +118,8 @@ public class AltaPaquetesView extends JFrame {
 		lblIngreseLosDatos.setBounds(46, 17, 353, 16);
 		contentPane.add(lblIngreseLosDatos);
 
-		JButton btnBuscar = new JButton("Buscar Producto");
-		btnBuscar.setBounds(288, 165, 130, 29);
-		contentPane.add(btnBuscar);
-		btnBuscar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					sis.getProducto(Integer.parseInt(textFieldProducto.getText()));
-					JOptionPane.showMessageDialog(instancia, "Alumno encontrado, puede agregar materias.");
-					textFieldDesc.setEditable(false);
-				} catch (Exception e2) {
-					JOptionPane.showMessageDialog(instancia, "No existe el alumno.");
-				}
-			}
-		});
-
-		JButton btnAgregar = new JButton("Agregar");
-		btnAgregar.setBounds(135, 223, 117, 29);
+		JButton btnAgregar = new JButton("Agregar Producto");
+		btnAgregar.setBounds(135, 223, 130, 29);
 		contentPane.add(btnAgregar);
 		
 		JLabel lblProducto = new JLabel("Producto: ");
@@ -137,7 +132,13 @@ public class AltaPaquetesView extends JFrame {
 		contentPane.add(textFieldProducto);
 		btnAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				if (sis.existeProducto(Integer.parseInt(textFieldProducto.getText())))
+				{
+					paqueteView.agregarProducto(sis.getProducto(Integer.parseInt(textFieldProducto.getText())));
+					JOptionPane.showMessageDialog(instancia, "Se Ha agregado el producto");
+				}
+				else 
+					JOptionPane.showMessageDialog(instancia, "El producto no existe");
 			}
 		});
 	}
