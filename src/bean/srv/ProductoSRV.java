@@ -1,4 +1,4 @@
-package srv;
+package bean.srv;
 import bean.Productos;
 import bean.dao.HibernateProductoDAO;
 

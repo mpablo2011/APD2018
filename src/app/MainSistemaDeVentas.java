@@ -10,7 +10,7 @@ import bean.ListProductos;
 import bean.Productos;
 import bean.Views.ProductoView;
 import bean.srv.ClienteSRV;
-import srv.ProductoSRV;
+import bean.srv.ProductoSRV;
 
 public class MainSistemaDeVentas {
 	
