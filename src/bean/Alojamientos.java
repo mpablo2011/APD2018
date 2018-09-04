@@ -65,7 +65,6 @@ public class Alojamientos extends Productos {
 		this.ubicacion = ubicacion;
 	}
 
-	@Override
 	public float getPrecio() {
 		return this.precio;
 		

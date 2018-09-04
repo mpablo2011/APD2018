@@ -14,9 +14,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import app.MainSistemaDeVentas;
-import bean.Views.ProductoView;
-import bean.Views.PaqueteView;
-
+import bean.Views.*;
 
 
 public class AltaPaquetesView extends JFrame {

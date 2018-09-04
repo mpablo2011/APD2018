@@ -32,7 +32,6 @@ public class Pasajes extends Productos {
 		this.precio = precio;
 	}
 	
-	@Override
 	public float getPrecio() {
 		return this.precio;
 		

@@ -6,7 +6,7 @@ import java.util.Collection;
 public class Ventas {
 	public String idVenta;
 	public Cliente cliente;
-	public Collection<ItemVenta> itemVenta;
+	public ListItemVenta itemsVenta;
 	//public Date fechaVenta;
 	public void getPrecioTotal() {
 	
@@ -23,10 +23,10 @@ public class Ventas {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-	public Collection<ItemVenta> getItemVenta() {
-		return itemVenta;
+	public ListItemVenta getItemVenta() {
+		return itemsVenta;
 	}
-	public void setItemVenta(Collection<ItemVenta> itemVenta) {
-		this.itemVenta = itemVenta;
+	public void setItemVenta(ItemVenta itemVenta) {
+		itemsVenta.addItemVenta(itemVenta);
 	}
 }

@@ -7,6 +7,18 @@ import bean.srv.ClienteSRV;
 public class VentaController {
 	
 	private Ventas venta;
+	private static VentaController instancia;
+
+	public static VentaController getInstancia() {
+		if (instancia == null) {
+			instancia = new VentaController();
+		}
+		return instancia;
+	}
+	
+	private VentaController() {
+		venta = new Ventas();
+	}
 
 	public int VincularClienteAVenta(int dni) {
 		

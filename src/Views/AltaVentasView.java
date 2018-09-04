@@ -80,19 +80,19 @@ public class AltaVentasView extends JFrame {
 					
 					int dni = Integer.parseInt(dniField.getText());
 					
-					VentaController vtc = new VentaController();
+					VentaController vtc = VentaController.getInstancia();
 					
 					int resultado = vtc.VincularClienteAVenta(dni);
 					
 					if (resultado == 1) {
-		            	JOptionPane pane = new JOptionPane("Usuario eliminado de forma correcta");
+		            	JOptionPane pane = new JOptionPane("Cliente vinculado de forma correcta");
 		            	pane.setBackground(Color.GREEN);
 		                JDialog d = pane.createDialog(new JFrame(), "OK");
 		                d.setLocation(100,100);
 		                d.setVisible(true);
 					}
 					if (resultado == -1) {
-		            	JOptionPane pane = new JOptionPane("Usuario inexistente.");
+		            	JOptionPane pane = new JOptionPane("Cliente inexistente.");
 		            	pane.setBackground(Color.RED);
 		                JDialog d = pane.createDialog(new JFrame(), "OK");
 		                d.setLocation(100,100);

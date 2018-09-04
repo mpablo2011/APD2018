@@ -24,7 +24,7 @@ public class ListItemVenta
 		this.ItemsVenta = ItemsVenta;
 	}
 	
-	public void addCliente(ItemVenta ItemVenta){
+	public void addItemVenta(ItemVenta ItemVenta){
 		ItemsVenta.add(ItemVenta);
 	}
 	
