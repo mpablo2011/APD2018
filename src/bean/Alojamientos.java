@@ -1,13 +1,20 @@
 package bean;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="alojamientos")
 @DiscriminatorValue("AL")
-public class Alojamientos extends Productos {
+public class Alojamientos extends Productos implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Date fechaDesde;
 	private String nombreAlojamiento;
 	private Date FechaHasta;
