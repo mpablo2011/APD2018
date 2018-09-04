@@ -1,11 +1,30 @@
 package bean;
 
+import java.io.Serializable;
 
 
-public class Cliente {
-	public int dni;
-	public String nombre;
-	public int telefono;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="clientes")
+
+
+public class Cliente implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+	@Id
+	@Column (name = "dni")
+	private int dni;
+	@Column (name = "nombre", nullable = false, length = 50)
+	private String nombre;
+	@Column (name = "telefono", nullable = false, length = 20)
+	private int telefono;
+	@Column (name = "mail", nullable = false, length = 80)
+	private String mail;
+	
 	public int getDni() {
 		return dni;
 	}
@@ -30,5 +49,4 @@ public class Cliente {
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
-	public String mail;
 }
