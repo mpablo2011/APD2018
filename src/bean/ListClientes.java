@@ -3,6 +3,8 @@ package bean;
 import java.util.ArrayList;
 import java.util.List;
 
+import bean.dao.HibernateClienteDAO;
+
 
 
 public class ListClientes 
@@ -23,6 +25,8 @@ public class ListClientes
 	}
 	
 	public void addCliente(Cliente cliente){
+		HibernateClienteDAO hcd = new HibernateClienteDAO();
+		hcd.grabarCliente(cliente);
 		clientes.add(cliente);
 	}
 	

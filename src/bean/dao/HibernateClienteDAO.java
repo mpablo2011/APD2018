@@ -2,6 +2,7 @@ package bean.dao;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -31,11 +32,13 @@ public class HibernateClienteDAO {
 		
 	}
 	
-	public Cliente leerCliente(int dni){
-		String query = "from cliente where dni = :dni";
+	public Cliente getCliente(int dni){
+		
+		String consulta = "from cliente where dni = :dni";
 		Session session = sf.openSession();
-		@SuppressWarnings("unchecked")
-		List<Cliente> list = session.createQuery(query).list();
+		Query query = session.createQuery(consulta);
+		query.setParameter("dni", dni);
+		List<Cliente> list = query.list();
 		session.close();
 		return list.get(1);
 	}

@@ -9,6 +9,7 @@ import bean.ListClientes;
 import bean.ListProductos;
 import bean.Productos;
 import bean.Views.ProductoView;
+import bean.srv.ClienteSRV;
 import srv.ProductoSRV;
 
 public class MainSistemaDeVentas {
@@ -47,8 +48,10 @@ public class MainSistemaDeVentas {
 			cli.setMail(mail);
 			cli.setNombre(nombre);
 			cli.setTelefono(telefono);
+
+			ClienteSRV srv = new ClienteSRV();
+			srv.grabarCliente(cli);
 			
-			clientes.addCliente(cli);
 			return 1;
 		}
 		else
@@ -64,7 +67,8 @@ public class MainSistemaDeVentas {
 
 	public int bajaCliente(int dni) {
 
-		Cliente cli = clientes.getClientePorDNI(dni);
+		ClienteSRV srv = new ClienteSRV();
+		Cliente cli = srv.getCliente(dni);
 		
 		if(cli.equals(null))
 		{	

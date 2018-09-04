@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 @Entity
 @DiscriminatorValue("PJ")
 public class Pasajes extends Productos {
-	public Date fechaPasaje;
+	//public Date fechaPasaje;
 	public float precio;
 	public String aerolinea;
 	public String origen;
