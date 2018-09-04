@@ -8,7 +8,6 @@ import javax.persistence.Entity;
 @Entity
 @DiscriminatorValue("AL")
 public class Alojamientos extends Productos {
-<<<<<<< HEAD
 	private Date fechaDesde;
 	private String nombreAlojamiento;
 	private Date FechaHasta;
@@ -24,13 +23,4 @@ public class Alojamientos extends Productos {
 		this.ubicacion = ubicacion;
 		this.descripcion = descripcion;
 	}
-	
-	
-=======
-	//public Date fechaDesde;
-	public String nombreAlojamiento;
-	//public Date FechaHasta;
-	public Float precio;
-	public String ubicacion;
->>>>>>> a69402856765201d3872a3579d997e4c7ada211f
 }
