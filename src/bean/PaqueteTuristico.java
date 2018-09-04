@@ -1,16 +1,15 @@
 package bean;
 
 import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.CascadeType;
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 @Entity
-//@DiscriminatorValue("PT")
 public class PaqueteTuristico extends Productos {
 	
 	/**
@@ -20,7 +19,7 @@ public class PaqueteTuristico extends Productos {
 	
 	@ManyToMany(cascade = CascadeType.MERGE)
 	@JoinTable(name="paquete_producto", joinColumns=@JoinColumn(name="paquete_id"), inverseJoinColumns=@JoinColumn(name="producto_id"))
-	private Collection<Productos> productos;
+	private List<Productos> productos;
 	private String descripcion;
 	private int descuento;
 	
@@ -29,13 +28,12 @@ public class PaqueteTuristico extends Productos {
 		
 	}	
 	
-	public void agregarProducto() {
-	
-	}
-	
-	public void eliminarProducto() {
-	
-	}
+	public PaqueteTuristico(String descripcion, int descuento, List<Productos> productos)
+	{
+		this.descripcion = descripcion;
+		this.descuento = descuento;
+		this.productos = productos;
+	}	
 	
 	public float getPrecio() {
 		return 0;
@@ -45,7 +43,7 @@ public class PaqueteTuristico extends Productos {
 		return productos;
 	}
 
-	public void setProductos(Collection<Productos> productos) {
+	public void setProductos(List<Productos> productos) {
 		this.productos = productos;
 	}
 

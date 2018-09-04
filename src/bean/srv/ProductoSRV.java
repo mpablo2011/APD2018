@@ -10,8 +10,7 @@ public class ProductoSRV {
 	static {
 		dao = HibernateProductoDAO.getInstancia();
 	}
-	
-	
+		
 	public Productos getProductoPorCodigo(int codigo) {
 		return dao.getProductoPorCodigo(codigo);
 	}
