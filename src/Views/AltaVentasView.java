@@ -170,7 +170,7 @@ public class AltaVentasView extends JFrame {
 		JButton btnRegistrarVenta = new JButton("Registrar Venta");
 		btnRegistrarVenta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				//VentaController.getInstancia().grabarVenta();
+				VentaController.getInstancia().grabarVenta();
 			}
 		});
 		btnRegistrarVenta.setBounds(253, 386, 200, 25);

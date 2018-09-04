@@ -64,10 +64,10 @@ public class VentaController {
 		return vv;
 	}
 
-	public void grabarVenta(Ventas vta) {
+	public void grabarVenta() {
 		VentaSRV srv = new VentaSRV();
 		
-		srv.grabarVenta(vta);
+		srv.grabarVenta(this.venta);
 	}
 
 }
