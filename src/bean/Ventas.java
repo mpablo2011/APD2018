@@ -26,8 +26,8 @@ public class Ventas implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@Column (name = "id")
-	private String idVenta;
+	@Column (name = "idVenta")
+	private int idVenta;
 	
 	@ManyToOne(cascade= CascadeType.ALL,fetch=FetchType.EAGER)
 	@JoinColumn(name= "dni")
@@ -54,11 +54,11 @@ public class Ventas implements Serializable{
 		return total;
 	}
 	
-	public String getIdVenta() {
+	public int getIdVenta() {
 		return idVenta;
 	}
 	
-	public void setIdVenta(String idVenta) {
+	public void setIdVenta(int idVenta) {
 		this.idVenta = idVenta;
 	}
 	
