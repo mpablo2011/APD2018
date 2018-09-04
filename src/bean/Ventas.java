@@ -1,32 +1,53 @@
 package bean;
 
-import java.sql.Date;
-import java.util.Collection;
+import java.util.Date;
+import java.util.List;
 
 public class Ventas {
-	public String idVenta;
-	public Cliente cliente;
-	public ListItemVenta itemsVenta;
-	//public Date fechaVenta;
-	public void getPrecioTotal() {
+	private String idVenta;
+	private Cliente cliente;
+	private List<ItemVenta> itemsVenta;
+	private Date fechaVenta;
 	
+	
+	public float getPrecioTotal() 
+	{
+		float total = 0;
+		
+		for(ItemVenta i : this.itemsVenta)
+			total = total + (i.getProducto().getPrecio() * i.getCantidad());
+
+		return total;
 	}
+	
 	public String getIdVenta() {
 		return idVenta;
 	}
+	
 	public void setIdVenta(String idVenta) {
 		this.idVenta = idVenta;
 	}
+	
 	public Cliente getCliente() {
 		return cliente;
 	}
+	
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-	public ListItemVenta getItemVenta() {
+	
+	public List<ItemVenta> getItemVenta() {
 		return itemsVenta;
 	}
 	public void setItemVenta(ItemVenta itemVenta) {
-		itemsVenta.addItemVenta(itemVenta);
+		this.itemsVenta.add(itemVenta);
+	}
+	
+	public Date getFechaVenta() {
+		return fechaVenta;
+	}
+	
+	public void setFechaVenta(Date fechaVenta) {
+		this.fechaVenta = fechaVenta;
 	}
 }

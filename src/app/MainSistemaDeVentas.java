@@ -6,8 +6,6 @@ import java.util.List;
 
 import bean.Alojamientos;
 import bean.Cliente;
-import bean.ListClientes;
-import bean.ListProductos;
 import bean.PaqueteTuristico;
 import bean.Pasajes;
 import bean.Productos;
@@ -19,8 +17,8 @@ import bean.srv.ProductoSRV;
 
 public class MainSistemaDeVentas {
 	
-	private ListClientes clientes;
-	private ListProductos productos;
+	private List<Cliente> clientes;
+	private List<Productos> productos;
 
 	private static MainSistemaDeVentas instancia;
 
@@ -32,29 +30,31 @@ public class MainSistemaDeVentas {
 	}
 	
 	private MainSistemaDeVentas() {
-		clientes = new ListClientes();
-		productos = new ListProductos();
+		clientes = new ArrayList<Cliente>();
+		productos = new ArrayList<Productos>();
 	}
 
-	public ListClientes getClientes() {
+	public List<Cliente> getClientes() {
 		return clientes;
 	}
 
 	public void addCliente(Cliente cliente) {
-		clientes.addCliente(cliente);
+		clientes.add(cliente);
 	}
 	
 	public int altaCliente(int dni, String nombre, int telefono, String mail) {
 		
-		if(!clientes.existeCliente(dni))
+		ClienteSRV srv = new ClienteSRV();
+		Cliente aux = srv.buscarCliente(dni);
+		
+		if(aux == null)
 		{
 			Cliente cli = new Cliente();
 			cli.setDni(dni);
 			cli.setMail(mail);
 			cli.setNombre(nombre);
 			cli.setTelefono(telefono);
-
-			ClienteSRV srv = new ClienteSRV();
+			
 			srv.grabarCliente(cli);
 			
 			return 1;

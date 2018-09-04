@@ -16,7 +16,7 @@ public class ClienteSRV {
 	}
 	
 	public Cliente getCliente(int cli){
-		return dao.getCliente(cli);
+		return dao.buscarCliente(cli);
 	}
 	
 	public int eliminarCliente(Cliente cli){

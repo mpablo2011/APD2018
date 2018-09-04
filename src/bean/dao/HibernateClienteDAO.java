@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import bean.Cliente;
+import bean.Productos;
 import hbt.HibernateUtil;
 
 public class HibernateClienteDAO {
@@ -33,36 +34,13 @@ public class HibernateClienteDAO {
 		
 	}
 	
-	public Cliente getCliente(int dni){
-		
-		
-		Session session = sf.openSession();
-		String hql = "from clientes where dni = :dni";
-		@SuppressWarnings("unchecked")
-		List<Cliente> list = session.createQuery(hql)
-		.setParameter("dni", dni)
-		.list();
-		session.close();
-		return list.get(0);
-
-	}
-	
-	public Cliente buscarCliente(int dni) throws Exception
+	public Cliente buscarCliente(int dni)
 	{
-		Session session = null;
-		Cliente cliente = null;
-		try {
-			session = HibernateUtil.getSessionFactory().openSession();
-			cliente = session.load(Cliente.class, dni);
-			Hibernate.initialize(cliente);
-		} catch (Exception e) {
-			return null;
-		} finally {
-			if (session != null && session.isOpen()) {
-				session.close();
-			}
-		}
-		return cliente;
+		Session session = sf.openSession();
+		session.beginTransaction();
+		Cliente result = (Cliente) session.get(Cliente.class, dni);
+		session.getTransaction().commit();
+		return result;
 	}
 	
 	public int eliminarCliente(Cliente cli) {
