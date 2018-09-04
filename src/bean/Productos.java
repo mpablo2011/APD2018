@@ -14,7 +14,6 @@ import bean.Views.ProductoView;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-//@DiscriminatorColumn(name = "tipo", discriminatorType = DiscriminatorType.STRING)
 public abstract class Productos implements Serializable {
 	
 	/**

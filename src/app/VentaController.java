@@ -3,6 +3,7 @@ package app;
 import bean.Cliente;
 import bean.Ventas;
 import bean.srv.ClienteSRV;
+import bean.srv.VentaSRV;
 
 public class VentaController {
 	
@@ -35,6 +36,12 @@ public class VentaController {
 			return 1;
 		}
 		
+	}
+	
+	public void grabarVenta(Ventas vta) {
+		VentaSRV srv = new VentaSRV();
+		
+		srv.grabarVenta(vta);
 	}
 
 }

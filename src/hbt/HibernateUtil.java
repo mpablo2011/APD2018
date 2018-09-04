@@ -19,7 +19,9 @@ public class HibernateUtil
             config.addAnnotatedClass(Alojamientos.class);
             config.addAnnotatedClass(Pasajes.class);
             config.addAnnotatedClass(PaqueteTuristico.class);
-            config.addAnnotatedClass(VisitasTuristicas.class);            
+            config.addAnnotatedClass(VisitasTuristicas.class);
+            config.addAnnotatedClass(Ventas.class);    
+            config.addAnnotatedClass(ItemVenta.class);    
             sessionFactory = config.buildSessionFactory();    
         }
         catch (Throwable ex)
