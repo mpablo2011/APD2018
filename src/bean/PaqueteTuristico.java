@@ -37,8 +37,8 @@ public class PaqueteTuristico extends Productos {
 	
 	}
 	
-	public void getPrecio() {
-	
+	public float getPrecio() {
+		return 0;
 	}
 
 	public Collection<Productos> getProductos() {
