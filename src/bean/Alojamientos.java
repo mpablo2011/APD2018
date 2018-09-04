@@ -66,8 +66,8 @@ public class Alojamientos extends Productos {
 	}
 
 	@Override
-	public void getPrecio() {
-		// TODO Auto-generated method stub
+	public float getPrecio() {
+		return this.precio;
 		
 	}
 	
