@@ -19,7 +19,4 @@ public class ProductoSRV {
 	public void grabarProducto(Productos producto) {
 		dao.grabarProducto(producto);
 	}
-
-	
-
 }

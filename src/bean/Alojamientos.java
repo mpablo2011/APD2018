@@ -6,7 +6,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("AL")
+//@DiscriminatorValue("AL")
 public class Alojamientos extends Productos {
 	/**
 	 * 

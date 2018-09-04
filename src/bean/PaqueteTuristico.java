@@ -10,7 +10,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 @Entity
-@DiscriminatorValue("PT")
+//@DiscriminatorValue("PT")
 public class PaqueteTuristico extends Productos {
 	
 	/**

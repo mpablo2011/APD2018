@@ -6,7 +6,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("PJ")
+//@DiscriminatorValue("PJ")
 public class Pasajes extends Productos {
 	/**
 	 * 
