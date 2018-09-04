@@ -1,5 +1,6 @@
 package bean;
 
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
@@ -14,17 +15,17 @@ import bean.Views.ProductoView;
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "tipo", discriminatorType = DiscriminatorType.STRING)
-public class Productos {
+public abstract class Productos {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int codigoProducto;
+	
+	@Column (name = "descripcion", length = 100)
 	protected String descripcion;
 	
-	public void getPrecio() {
-	
-	}
-	
+	public abstract void getPrecio();
+		
 	public int getCodigoProducto() {
 		return this.codigoProducto;
 	}

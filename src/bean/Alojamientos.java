@@ -11,16 +11,64 @@ public class Alojamientos extends Productos {
 	private Date fechaDesde;
 	private String nombreAlojamiento;
 	private Date FechaHasta;
+	@SuppressWarnings("unused")
 	private float precio;
 	private String ubicacion;
 	
+	public Alojamientos()
+	{
+		
+	}
+	
 	public Alojamientos(String descripcion,Date fechaDesde, Date fechaHasta, String nombreAlojamiento, float precio, String ubicacion)
 	{
-		this.fechaDesde = fechaDesde;
-		this.FechaHasta = fechaHasta;
-		this.nombreAlojamiento = nombreAlojamiento;
-		this.precio = precio; 
-		this.ubicacion = ubicacion;
+		this.setFechaDesde(fechaDesde);
+		this.setFechaHasta(fechaHasta);
+		this.setNombreAlojamiento(nombreAlojamiento);
+		this.setPrecio(precio); 
+		this.setUbicacion(ubicacion);
 		this.descripcion = descripcion;
+	}
+
+	public Date getFechaDesde() {
+		return fechaDesde;
+	}
+
+	public void setFechaDesde(Date fechaDesde) {
+		this.fechaDesde = fechaDesde;
+	}
+
+	public Date getFechaHasta() {
+		return FechaHasta;
+	}
+
+	public void setFechaHasta(Date fechaHasta) {
+		FechaHasta = fechaHasta;
+	}
+
+	public String getNombreAlojamiento() {
+		return nombreAlojamiento;
+	}
+
+	public void setNombreAlojamiento(String nombreAlojamiento) {
+		this.nombreAlojamiento = nombreAlojamiento;
+	}
+
+	public String getUbicacion() {
+		return ubicacion;
+	}
+
+	public void setUbicacion(String ubicacion) {
+		this.ubicacion = ubicacion;
+	}
+
+	@Override
+	public void getPrecio() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public void setPrecio(float precio) {
+		this.precio = precio;
 	}
 }

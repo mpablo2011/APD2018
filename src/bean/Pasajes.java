@@ -1,6 +1,6 @@
 package bean;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -8,9 +8,56 @@ import javax.persistence.Entity;
 @Entity
 @DiscriminatorValue("PJ")
 public class Pasajes extends Productos {
-	//public Date fechaPasaje;
-	public float precio;
-	public String aerolinea;
-	public String origen;
-	public String destino;
+	private Date fechaPasaje;
+	private float precio;
+	private String aerolinea;
+	private String origen;
+	private String destino;
+	
+	public Pasajes()
+	{
+		
+	}
+	
+	@Override
+	public void getPrecio() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public void getPrecio(float precio) {
+		this.precio = precio;
+	}
+
+	public Date getFechaPasaje() {
+		return fechaPasaje;
+	}
+
+	public void setFechaPasaje(Date fechaPasaje) {
+		this.fechaPasaje = fechaPasaje;
+	}
+
+	public String getOrigen() {
+		return origen;
+	}
+
+	public void setOrigen(String origen) {
+		this.origen = origen;
+	}
+
+	public String getDestino() {
+		return destino;
+	}
+
+	public void setDestino(String destino) {
+		this.destino = destino;
+	}
+
+	public String getAerolinea() {
+		return aerolinea;
+	}
+
+	public void setAerolinea(String aerolinea) {
+		this.aerolinea = aerolinea;
+	}
 }
