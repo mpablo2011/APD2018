@@ -1,14 +1,18 @@
 package bean;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class Ventas {
 	private String idVenta;
 	private Cliente cliente;
-	private List<ItemVenta> itemsVenta;
+	private ArrayList<ItemVenta> itemsVenta;
 	private Date fechaVenta;
 	
+	public Ventas () {
+		itemsVenta = new ArrayList<ItemVenta>();
+	}
 	
 	public float getPrecioTotal() 
 	{

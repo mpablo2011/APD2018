@@ -1,8 +1,13 @@
 package app;
 
 import bean.Cliente;
+import bean.ItemVenta;
+import bean.Productos;
 import bean.Ventas;
+import bean.Views.ProductoView;
+import bean.Views.VentaView;
 import bean.srv.ClienteSRV;
+import bean.srv.ProductoSRV;
 
 public class VentaController {
 	
@@ -35,6 +40,27 @@ public class VentaController {
 			return 1;
 		}
 		
+	}
+	
+	public void agregarProducto(int codproducto, int cant) {
+		
+		Productos producto = new ProductoSRV().getProductoPorCodigo(codproducto);
+		ItemVenta iv = new ItemVenta();
+		
+		iv.setCantidad(cant);
+		iv.setProducto(producto);
+		
+		venta.setItemVenta(iv);
+		
+	}
+	
+	public VentaView getVentaView()
+	{
+		VentaView vv = new VentaView();
+		
+		vv.setTotalVenta(this.venta.getPrecioTotal());
+		
+		return vv;
 	}
 
 }

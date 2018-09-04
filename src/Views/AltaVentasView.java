@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import app.VentaController;
+import bean.Views.VentaView;
 
 import javax.swing.JSplitPane;
 import javax.swing.JLabel;
@@ -26,7 +27,7 @@ public class AltaVentasView extends JFrame {
 	private JPanel contentPane;
 	private JTextField dniField;
 	private JTable table;
-	private JTextField textField_1;
+	private JTextField precioTotField;
 
 	/**
 	 * Launch the application.
@@ -125,6 +126,13 @@ public class AltaVentasView extends JFrame {
 		contentPane.add(lblProductos);
 		
 		JButton btnAgregarProducto = new JButton("Agregar Producto");
+		btnAgregarProducto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				buscarProductoView bpv = new buscarProductoView();
+				bpv.setVisible(true);
+				AltaVentasView.this.setVisible(false);
+			}
+		});
 		btnAgregarProducto.setBounds(12, 259, 469, 25);
 		contentPane.add(btnAgregarProducto);
 		
@@ -132,10 +140,21 @@ public class AltaVentasView extends JFrame {
 		lblPrecioTotal.setBounds(12, 317, 81, 16);
 		contentPane.add(lblPrecioTotal);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(134, 314, 148, 22);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		precioTotField = new JTextField();
+		precioTotField.setEditable(false);
+		precioTotField.setBounds(134, 314, 148, 22);
+		contentPane.add(precioTotField);
+		precioTotField.setColumns(10);
+		VentaView vw = VentaController.getInstancia().getVentaView();
+		if (vw == null) 
+		{
+			precioTotField.setText("0");
+		}
+		else
+		{
+			float precioTotal = vw.getTotalVenta();
+			precioTotField.setText(Float.toString(precioTotal));
+		}
 		
 		JButton btnVolver = new JButton("Volver");
 		btnVolver.addActionListener(new ActionListener() {
