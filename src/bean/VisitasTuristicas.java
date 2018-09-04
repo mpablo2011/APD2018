@@ -2,7 +2,16 @@ package bean;
 
 import java.util.Date;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("VT")
 public class VisitasTuristicas extends Productos {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Date fecha;
 	private String nombreGuia;
 	private String ubicacion;

@@ -8,7 +8,12 @@ import javax.persistence.Entity;
 @Entity
 @DiscriminatorValue("PJ")
 public class Pasajes extends Productos {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Date fechaPasaje;
+	@SuppressWarnings("unused")
 	private float precio;
 	private String aerolinea;
 	private String origen;
@@ -25,7 +30,7 @@ public class Pasajes extends Productos {
 		
 	}
 	
-	public void getPrecio(float precio) {
+	public void setPrecio(float precio) {
 		this.precio = precio;
 	}
 
