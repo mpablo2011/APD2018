@@ -35,4 +35,25 @@ public class HibernateProductoDAO {
 		}
 		
 	}
+	
+	/*
+	public List<Productos> getProductos() {
+		Session session = sf.openSession();
+		session.beginTransaction();
+		CriteriaBuilder cb = session.getCriteriaBuilder();
+		CriteriaQuery<Productos> cq = cb.createQuery(Productos.class);
+		Root<Productos> matRoot = cq.from(Productos.class);
+		cq.select(matRoot).where(cb.equal());
+		List<Materia> result = session.createQuery(cq).getResultList();
+		session.getTransaction().commit();
+		return result;
+	}*/
+	
+	public Productos getProductoPorCodigo(int codigo) {
+		Session session = sf.openSession();
+		session.beginTransaction();
+		Productos result = (Productos) session.get(Productos.class, codigo);
+		session.getTransaction().commit();
+		return result;
+	}
 }

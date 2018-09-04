@@ -12,8 +12,8 @@ public class ProductoSRV {
 	}
 	
 	
-	public Productos getProductoPorId(int id) {
-		return null;
+	public Productos getProductoPorCodigo(int codigo) {
+		return dao.getProductoPorCodigo(codigo);
 	}
 	
 	public void grabarProducto(Productos producto) {

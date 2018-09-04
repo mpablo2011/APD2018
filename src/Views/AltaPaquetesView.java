@@ -14,6 +14,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import app.MainSistemaDeVentas;
+import bean.Views.ProductoView;
 import bean.Views.PaqueteView;
 
 
@@ -130,9 +131,12 @@ public class AltaPaquetesView extends JFrame {
 		contentPane.add(textFieldProducto);
 		btnAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (sis.existeProducto(Integer.parseInt(textFieldProducto.getText())))
+				
+				ProductoView prod = sis.getProductoPorCodigo(Integer.parseInt(textFieldProducto.getText()));
+				
+				if (prod != null)				
 				{
-					paqueteView.agregarProducto(sis.getProducto(Integer.parseInt(textFieldProducto.getText())));
+					paqueteView.agregarProducto(prod);
 					JOptionPane.showMessageDialog(instancia, "Se Ha agregado el producto");
 				}
 				else 

@@ -1,7 +1,6 @@
 package app;
 
 import java.text.SimpleDateFormat;
-import java.util.Collection;
 
 import bean.Alojamientos;
 import bean.Cliente;
@@ -62,9 +61,9 @@ public class MainSistemaDeVentas {
 		}
 	}
 	
-	public ProductoView getProducto(int id) {
-		Productos producto = new ProductoSRV().getProductoPorId(id);
-		return producto.getView();		
+	public ProductoView getProductoPorCodigo(int codigo) {
+		Productos producto = new ProductoSRV().getProductoPorCodigo(codigo);
+		return producto != null ? producto.getView() : null;		
 	}
 
 	public int bajaCliente(int dni) {
@@ -82,16 +81,6 @@ public class MainSistemaDeVentas {
 			srv.eliminarCliente(cli);
 			return 1;
 		}
-	}
-	
-	public boolean existeProducto(int id)
-	{
-		return true;
-	}
-	
-	public void agregarProducto(int id)
-	{
-		
 	}
 	
 	public void grabarAlojamiento(String descripcion, String fechaDesde,String fechaHasta, String nombre, float precio, String ubicacion)
