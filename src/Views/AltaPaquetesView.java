@@ -17,8 +17,6 @@ import app.MainSistemaDeVentas;
 import bean.Views.ProductoView;
 import bean.Views.PaqueteView;
 
-
-
 public class AltaPaquetesView extends JFrame {
 
 	/**
@@ -86,6 +84,7 @@ public class AltaPaquetesView extends JFrame {
 				{
 					paqueteView.setDescripcion(textFieldDesc.getText());
 					paqueteView.setDescuento(Integer.parseInt(textFieldDescuento.getText()));
+					sis.grabarPaquete(paqueteView);
 				}
 				else
 					JOptionPane.showMessageDialog(instancia, "Debe Completar el formulario");

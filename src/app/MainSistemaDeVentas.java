@@ -1,14 +1,18 @@
 package app;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 import bean.Alojamientos;
 import bean.Cliente;
 import bean.ListClientes;
 import bean.ListProductos;
+import bean.PaqueteTuristico;
 import bean.Pasajes;
 import bean.Productos;
 import bean.VisitasTuristicas;
+import bean.Views.PaqueteView;
 import bean.Views.ProductoView;
 import bean.srv.ClienteSRV;
 import bean.srv.ProductoSRV;
@@ -137,6 +141,22 @@ public class MainSistemaDeVentas {
 			e.printStackTrace();
 		}
 		
-	}	
+	}
+
+	public void grabarPaquete(PaqueteView paqueteVw) {
+		
+		List<Productos> lista = new ArrayList<Productos>();
+		ProductoSRV srv = new ProductoSRV();
+		
+		for (ProductoView  prodVw: paqueteVw.getProductosView())
+		{			 
+			Productos prod = srv.getProductoPorCodigo(prodVw.getCodigoProducto());
+			
+			if (prod != null)
+				lista.add(prod);
+		}
+		
+		srv.grabarProducto(new PaqueteTuristico(paqueteVw.getDescripcion(),paqueteVw.getDescuento(),lista));
+	}
 				
 }
