@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import app.MainSistemaDeVentas;
+
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -15,12 +18,14 @@ import java.awt.event.ActionEvent;
 public class AltaPasajesView extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
+	private JTextField textFieldDesc;
+	private JTextField textFieldFecha;
+	private JTextField textFieldPrecio;
+	private JTextField textFieldAerolinea;
+	private JTextField textFieldOrigen;
+	private JTextField textFieldDestino;
+	
+	private MainSistemaDeVentas sis = MainSistemaDeVentas.getInstancia();
 
 	/**
 	 * Launch the application.
@@ -53,10 +58,10 @@ public class AltaPasajesView extends JFrame {
 		lblDescripcion.setBounds(21, 23, 81, 14);
 		contentPane.add(lblDescripcion);
 		
-		textField = new JTextField();
-		textField.setBounds(112, 20, 154, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		textFieldDesc = new JTextField();
+		textFieldDesc.setBounds(112, 20, 154, 20);
+		contentPane.add(textFieldDesc);
+		textFieldDesc.setColumns(10);
 		
 		JLabel lblPrecio = new JLabel("Precio: ");
 		lblPrecio.setBounds(23, 82, 56, 14);
@@ -78,32 +83,39 @@ public class AltaPasajesView extends JFrame {
 		lblDestino.setBounds(21, 157, 46, 14);
 		contentPane.add(lblDestino);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(112, 54, 154, 20);
-		contentPane.add(textField_1);
+		textFieldFecha = new JTextField();
+		textFieldFecha.setColumns(10);
+		textFieldFecha.setBounds(112, 54, 154, 20);
+		contentPane.add(textFieldFecha);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(112, 79, 154, 20);
-		contentPane.add(textField_2);
+		textFieldPrecio = new JTextField();
+		textFieldPrecio.setColumns(10);
+		textFieldPrecio.setBounds(112, 79, 154, 20);
+		contentPane.add(textFieldPrecio);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(112, 104, 154, 20);
-		contentPane.add(textField_3);
+		textFieldAerolinea = new JTextField();
+		textFieldAerolinea.setColumns(10);
+		textFieldAerolinea.setBounds(112, 104, 154, 20);
+		contentPane.add(textFieldAerolinea);
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(112, 129, 154, 20);
-		contentPane.add(textField_4);
+		textFieldOrigen = new JTextField();
+		textFieldOrigen.setColumns(10);
+		textFieldOrigen.setBounds(112, 129, 154, 20);
+		contentPane.add(textFieldOrigen);
 		
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBounds(112, 154, 154, 20);
-		contentPane.add(textField_5);
+		textFieldDestino = new JTextField();
+		textFieldDestino.setColumns(10);
+		textFieldDestino.setBounds(112, 154, 154, 20);
+		contentPane.add(textFieldDestino);
 		
 		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				sis.grabarPasaje(textFieldDesc.getText(),textFieldFecha.getText(),
+								  textFieldAerolinea.getText(),textFieldOrigen.getText(),
+								  textFieldDestino.getText(),Float.parseFloat(textFieldPrecio.getText()));
+			}
+		});
 		btnAceptar.setBounds(55, 214, 89, 23);
 		contentPane.add(btnAceptar);
 		

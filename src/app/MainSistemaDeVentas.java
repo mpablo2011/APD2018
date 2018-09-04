@@ -1,14 +1,18 @@
 package app;
 
+import java.text.SimpleDateFormat;
 import java.util.Collection;
 
+import bean.Alojamientos;
 import bean.Cliente;
 import bean.ListClientes;
 import bean.ListProductos;
+import bean.Pasajes;
 import bean.Productos;
+import bean.VisitasTuristicas;
 import bean.Views.ProductoView;
 import bean.srv.ClienteSRV;
-import srv.ProductoSRV;
+import bean.srv.ProductoSRV;
 
 public class MainSistemaDeVentas {
 	
@@ -89,5 +93,61 @@ public class MainSistemaDeVentas {
 	{
 		
 	}
-
+	
+	public void grabarAlojamiento(String descripcion, String fechaDesde,String fechaHasta, String nombre, float precio, String ubicacion)
+	{
+		try
+		{
+			SimpleDateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");	        
+			 	          
+			Productos producto = new Alojamientos(descripcion,formatter.parse(fechaDesde),formatter.parse(fechaHasta),nombre,precio,ubicacion);
+			
+			ProductoSRV srv = new ProductoSRV();
+			
+			srv.grabarProducto(producto);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}	
+	}
+	
+	public void grabarPasaje(String descripcion, String fecha, String aerolinea, String origen, String destino, float precio)
+	{
+		try
+		{
+			SimpleDateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");	        
+	         
+			Productos producto = new Pasajes(descripcion,formatter.parse(fecha), aerolinea, origen, destino, precio);
+			
+			ProductoSRV srv = new ProductoSRV();
+			
+			srv.grabarProducto(producto);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void grabarVisita(String descripcion, String fecha, String nombre,String ubicacion,float precio)
+	{
+		try
+		{			
+			SimpleDateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");	        
+	         
+			Productos producto = new VisitasTuristicas(descripcion,formatter.parse(fecha),nombre,ubicacion,precio);
+			
+			ProductoSRV srv = new ProductoSRV();
+			
+			srv.grabarProducto(producto);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+	}	
+				
 }

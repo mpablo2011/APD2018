@@ -3,7 +3,7 @@ package hbt;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import bean.Cliente;
+import bean.*;
 
  
 public class HibernateUtil
@@ -12,14 +12,15 @@ public class HibernateUtil
     static
     {
         try
-        {
-        	
+        {	
         	Configuration config = new Configuration();
             config.addAnnotatedClass(Cliente.class);
-            sessionFactory = config.buildSessionFactory();
-                         
-        	
-            
+            config.addAnnotatedClass(Productos.class);
+            config.addAnnotatedClass(Alojamientos.class);
+            config.addAnnotatedClass(Pasajes.class);
+            config.addAnnotatedClass(PaqueteTuristico.class);
+            config.addAnnotatedClass(VisitasTuristicas.class);            
+            sessionFactory = config.buildSessionFactory();    
         }
         catch (Throwable ex)
         {
