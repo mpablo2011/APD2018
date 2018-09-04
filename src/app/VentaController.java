@@ -8,6 +8,7 @@ import bean.Views.ProductoView;
 import bean.Views.VentaView;
 import bean.srv.ClienteSRV;
 import bean.srv.ProductoSRV;
+import bean.srv.VentaSRV;
 
 public class VentaController {
 	
@@ -41,7 +42,7 @@ public class VentaController {
 		}
 		
 	}
-	
+
 	public void agregarProducto(int codproducto, int cant) {
 		
 		Productos producto = new ProductoSRV().getProductoPorCodigo(codproducto);
@@ -61,6 +62,12 @@ public class VentaController {
 		vv.setTotalVenta(this.venta.getPrecioTotal());
 		
 		return vv;
+	}
+
+	public void grabarVenta(Ventas vta) {
+		VentaSRV srv = new VentaSRV();
+		
+		srv.grabarVenta(vta);
 	}
 
 }
