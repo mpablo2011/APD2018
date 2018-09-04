@@ -33,11 +33,11 @@ public class ListItemVenta
 	}
 	
 	public float getTotalItemsVenta(){
-		int total = 0;
+		float total = 0;
 		
 		for(ItemVenta i : ItemsVenta){
 
-			total = i.producto.getPrecio(); 
+			total = total + (i.getProducto().getPrecio() * i.getCantidad());
 			
 		}
 		return total;

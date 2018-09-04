@@ -34,7 +34,7 @@ public abstract class Productos implements Serializable {
 		
 	}
 	
-	public abstract void getPrecio();
+	public abstract float getPrecio();
 		
 	public int getCodigoProducto() {
 		return this.codigoProducto;
