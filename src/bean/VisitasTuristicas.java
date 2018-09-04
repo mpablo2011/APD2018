@@ -6,7 +6,6 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-//@DiscriminatorValue("VT")
 public class VisitasTuristicas extends Productos {
 	/**
 	 * 
@@ -18,6 +17,11 @@ public class VisitasTuristicas extends Productos {
 	private Float precio;
 	
 	public  VisitasTuristicas()
+	{
+		
+	}
+	
+	public VisitasTuristicas(String descripcion,Date fecha,String nombre,float precio)
 	{
 		
 	}

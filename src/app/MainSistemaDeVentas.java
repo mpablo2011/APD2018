@@ -7,7 +7,9 @@ import bean.Alojamientos;
 import bean.Cliente;
 import bean.ListClientes;
 import bean.ListProductos;
+import bean.Pasajes;
 import bean.Productos;
+import bean.VisitasTuristicas;
 import bean.Views.ProductoView;
 import bean.srv.ClienteSRV;
 import bean.srv.ProductoSRV;
@@ -108,5 +110,43 @@ public class MainSistemaDeVentas {
 			e.printStackTrace();
 		}	
 	}
+	
+	public void grabarPasaje(String descripcion, String fecha, String aerolinea, String origen, String destino, float precio)
+	{
+		try
+		{
+			SimpleDateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");	        
+	         
+			Productos producto = new Pasajes(descripcion,formatter.parse(fecha), aerolinea, origen, destino, precio);
+			
+			ProductoSRV srv = new ProductoSRV();
+			
+			srv.grabarProducto(producto);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void grabarVisita(String descripcion, String fecha, String nombre, float precio)
+	{
+		try
+		{			
+			SimpleDateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");	        
+	         
+			Productos producto = new VisitasTuristicas(descripcion,formatter.parse(fecha), nombre,precio);
+			
+			ProductoSRV srv = new ProductoSRV();
+			
+			srv.grabarProducto(producto);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+	}	
 				
 }

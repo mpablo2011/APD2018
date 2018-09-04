@@ -12,18 +12,15 @@ public class HibernateUtil
     static
     {
         try
-        {
-        	
+        {	
         	Configuration config = new Configuration();
             config.addAnnotatedClass(Cliente.class);
             config.addAnnotatedClass(Productos.class);
             config.addAnnotatedClass(Alojamientos.class);
             config.addAnnotatedClass(Pasajes.class);
             config.addAnnotatedClass(PaqueteTuristico.class);
-            sessionFactory = config.buildSessionFactory();
-                         
-        	
-            
+            config.addAnnotatedClass(VisitasTuristicas.class);            
+            sessionFactory = config.buildSessionFactory();    
         }
         catch (Throwable ex)
         {

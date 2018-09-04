@@ -2,7 +2,6 @@ package bean;
 
 import java.util.Date;
 
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
@@ -13,7 +12,6 @@ public class Pasajes extends Productos {
 	 */
 	private static final long serialVersionUID = 1L;
 	private Date fechaPasaje;
-	@SuppressWarnings("unused")
 	private float precio;
 	private String aerolinea;
 	private String origen;
@@ -22,6 +20,16 @@ public class Pasajes extends Productos {
 	public Pasajes()
 	{
 		
+	}
+	
+	public Pasajes(String descripcion, Date fecha, String aerolinea, String origen, String destino, float precio)
+	{
+		this.descripcion = descripcion;
+		this.fechaPasaje = fecha; 
+		this.aerolinea = aerolinea;
+		this.origen = origen; 
+		this.destino = destino;
+		this.precio = precio;
 	}
 	
 	@Override
