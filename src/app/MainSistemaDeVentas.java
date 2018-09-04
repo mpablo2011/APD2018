@@ -56,7 +56,7 @@ public class MainSistemaDeVentas {
 	}
 	
 	public ProductoView getProducto(int id) {
-		Productos producto = productos.getProductoPorID(id);
+		Productos producto = new ProductoSRV().getProductoPorId(id);
 		return producto.getView();		
 	}
 
