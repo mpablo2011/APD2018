@@ -74,5 +74,15 @@ public class MainSistemaDeVentas {
 			return 1;
 		}
 	}
+	
+	public boolean existeProducto(int id)
+	{
+		return true;
+	}
+	
+	public void agregarProducto(int id)
+	{
+		
+	}
 
 }
