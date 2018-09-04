@@ -19,4 +19,19 @@ public class ClienteSRV {
 		return dao.getCliente(cli);
 	}
 	
+	public int eliminarCliente(Cliente cli){
+		return dao.eliminarCliente(cli);
+	}
+	
+	public Cliente buscarCliente(int dni)
+	{
+		try {
+			return dao.buscarCliente(dni);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 }

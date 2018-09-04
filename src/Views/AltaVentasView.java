@@ -1,15 +1,22 @@
 package Views;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import app.VentaController;
+
 import javax.swing.JSplitPane;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JDialog;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
@@ -17,7 +24,7 @@ import javax.swing.JTable;
 public class AltaVentasView extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField dniField;
 	private JTable table;
 	private JTextField textField_1;
 
@@ -52,18 +59,58 @@ public class AltaVentasView extends JFrame {
 		lblCliente.setBounds(12, 24, 56, 16);
 		contentPane.add(lblCliente);
 		
-		textField = new JTextField();
-		textField.setBounds(80, 21, 202, 22);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		dniField = new JTextField();
+		dniField.setBounds(80, 21, 202, 22);
+		contentPane.add(dniField);
+		dniField.setColumns(10);
 		
 		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String dniStr = dniField.getText();
+
+				if (dniStr.isEmpty()) {
+	            	JOptionPane pane = new JOptionPane("Complete el DNI");
+	            	pane.setBackground(Color.RED);
+	                JDialog d = pane.createDialog(new JFrame(), "OK");
+	                d.setLocation(100,100);
+	                d.setVisible(true);
+				}
+				else {
+					
+					int dni = Integer.parseInt(dniField.getText());
+					
+					VentaController vtc = new VentaController();
+					
+					int resultado = vtc.VincularClienteAVenta(dni);
+					
+					if (resultado == 1) {
+		            	JOptionPane pane = new JOptionPane("Usuario eliminado de forma correcta");
+		            	pane.setBackground(Color.GREEN);
+		                JDialog d = pane.createDialog(new JFrame(), "OK");
+		                d.setLocation(100,100);
+		                d.setVisible(true);
+					}
+					if (resultado == -1) {
+		            	JOptionPane pane = new JOptionPane("Usuario inexistente.");
+		            	pane.setBackground(Color.RED);
+		                JDialog d = pane.createDialog(new JFrame(), "OK");
+		                d.setLocation(100,100);
+		                d.setVisible(true);
+					}
+					
+				}
+			}
+		});
 		btnBuscar.setBounds(302, 20, 151, 25);
 		contentPane.add(btnBuscar);
 		
 		JButton btnAlta = new JButton("Nuevo Cliente");
 		btnAlta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				AltaClienteView acv = new AltaClienteView();
+				acv.setVisible(true);
+				AltaVentasView.this.setVisible(false);
 			}
 		});
 		btnAlta.setBounds(302, 58, 151, 25);
@@ -91,6 +138,13 @@ public class AltaVentasView extends JFrame {
 		textField_1.setColumns(10);
 		
 		JButton btnVolver = new JButton("Volver");
+		btnVolver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MainView mv = new MainView();
+				mv.setVisible(true);
+				AltaVentasView.this.setVisible(false);
+			}
+		});
 		btnVolver.setBounds(12, 386, 185, 25);
 		contentPane.add(btnVolver);
 		

@@ -66,15 +66,16 @@ public class MainSistemaDeVentas {
 	public int bajaCliente(int dni) {
 
 		ClienteSRV srv = new ClienteSRV();
-		Cliente cli = srv.getCliente(dni);
+		//Cliente cli = srv.getCliente(dni);
+		Cliente cli = srv.buscarCliente(dni);
 		
-		if(cli.equals(null))
+		if(cli == null)
 		{	
 			return -1;
 		}
 		else
 		{
-			clientes.removeCliente(cli);
+			srv.eliminarCliente(cli);
 			return 1;
 		}
 	}

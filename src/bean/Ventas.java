@@ -11,4 +11,22 @@ public class Ventas {
 	public void getPrecioTotal() {
 	
 	}
+	public String getIdVenta() {
+		return idVenta;
+	}
+	public void setIdVenta(String idVenta) {
+		this.idVenta = idVenta;
+	}
+	public Cliente getCliente() {
+		return cliente;
+	}
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+	public Collection<ItemVenta> getItemVenta() {
+		return itemVenta;
+	}
+	public void setItemVenta(Collection<ItemVenta> itemVenta) {
+		this.itemVenta = itemVenta;
+	}
 }
