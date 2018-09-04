@@ -1,7 +1,9 @@
 package app;
 
+import java.text.SimpleDateFormat;
 import java.util.Collection;
 
+import bean.Alojamientos;
 import bean.Cliente;
 import bean.ListClientes;
 import bean.ListProductos;
@@ -84,5 +86,23 @@ public class MainSistemaDeVentas {
 	{
 		
 	}
-
+	
+	public void grabarAlojamiento(String descripcion, String fechaDesde,String fechaHasta, String nombre, float precio, String ubicacion)
+	{
+		try
+		{
+			SimpleDateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");	        
+			 	          
+			Productos producto = new Alojamientos(descripcion,formatter.parse(fechaDesde),formatter.parse(fechaHasta),nombre,precio,ubicacion);
+			
+			ProductoSRV srv = new ProductoSRV();
+			
+			srv.grabarProducto(producto);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}	
+	}
+				
 }

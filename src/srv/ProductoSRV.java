@@ -1,22 +1,23 @@
 package srv;
 import bean.Productos;
+import bean.dao.HibernateProductoDAO;
 
 
 public class ProductoSRV {
 	
-	/*
-	private static HibernateAlumnoDAO dao;
+	
+	private static HibernateProductoDAO dao;
 	static {
-		dao = HibernateAlumnoDAO.getInstancia();
+		dao = HibernateProductoDAO.getInstancia();
 	}
-	*/
+	
 	
 	public Productos getProductoPorId(int id) {
 		return null;
 	}
 	
-	public void grabarAlumno(Productos producto) {
-		//dao.grabarAlumno(alumno);
+	public void grabarProducto(Productos producto) {
+		dao.grabarProducto(producto);
 	}
 
 	
