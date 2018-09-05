@@ -1,6 +1,7 @@
 package Views;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -10,8 +11,11 @@ import javax.swing.border.EmptyBorder;
 import app.MainSistemaDeVentas;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JDialog;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -92,8 +96,25 @@ public class AltaVisitasView extends JFrame {
 		JButton btnAceptar = new JButton("Aceptar");
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				sis.grabarVisita(textFieldDesc.getText(),textFieldFecha.getText(),
-								 textFieldNombre.getText(),textFieldUbicacion.getText(),Float.parseFloat(textFieldPrecio.getText()));
+				try
+				{
+					sis.grabarVisita(textFieldDesc.getText(),textFieldFecha.getText(),
+									 textFieldNombre.getText(),textFieldUbicacion.getText(),Float.parseFloat(textFieldPrecio.getText()));
+					
+					JOptionPane pane = new JOptionPane("Visita Turistica dado de alta de forma correcta");
+	            	pane.setBackground(Color.GREEN);
+	                JDialog d = pane.createDialog(new JFrame(), "OK");
+	                d.setLocation(100,100);
+	                d.setVisible(true);
+				}
+				catch(Exception ex)
+				{
+					JOptionPane pane = new JOptionPane("Ocurrio un error al generar el alta de la Visita Turistica");
+	            	pane.setBackground(Color.RED);
+	                JDialog d = pane.createDialog(new JFrame(), "OK");
+	                d.setLocation(100,100);
+	                d.setVisible(true);
+				}
 			}
 		});
 		btnAceptar.setBounds(52, 210, 89, 23);
