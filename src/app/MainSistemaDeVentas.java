@@ -1,20 +1,13 @@
 package app;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-import bean.Alojamientos;
 import bean.Cliente;
-import bean.PaqueteTuristico;
-import bean.Pasajes;
 import bean.Productos;
-import bean.VisitasTuristicas;
 import bean.Views.PaqueteView;
 import bean.Views.ProductoView;
 import bean.srv.ClienteSRV;
-import bean.srv.ProductoSRV;
 
 public class MainSistemaDeVentas {
 	

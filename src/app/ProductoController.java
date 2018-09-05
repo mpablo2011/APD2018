@@ -23,6 +23,11 @@ public class ProductoController {
 		return instancia;
 	}
 	
+	private ProductoController()
+	{
+		
+	}
+	
 	public ProductoView getProductoPorCodigo(int codigo) {
 		Productos producto = new ProductoSRV().getProductoPorCodigo(codigo);
 		
