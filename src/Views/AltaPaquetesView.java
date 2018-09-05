@@ -1,11 +1,13 @@
 package Views;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -82,14 +84,31 @@ public class AltaPaquetesView extends JFrame {
 		contentPane.add(btnRealizarAlta);
 		btnRealizarAlta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if ( !textFieldDesc.getText().equals("") && !textFieldDescuento.getText().equals(""))
+				try
 				{
-					paqueteView.setDescripcion(textFieldDesc.getText());
-					paqueteView.setDescuento(Integer.parseInt(textFieldDescuento.getText()));
-					sis.grabarPaquete(paqueteView);
+					if ( !textFieldDesc.getText().equals("") && !textFieldDescuento.getText().equals(""))
+					{
+						paqueteView.setDescripcion(textFieldDesc.getText());
+						paqueteView.setDescuento(Integer.parseInt(textFieldDescuento.getText()));
+						sis.grabarPaquete(paqueteView);
+						
+						JOptionPane pane = new JOptionPane("Paquete dado de alta de forma correcta");
+		            	pane.setBackground(Color.GREEN);
+		                JDialog d = pane.createDialog(new JFrame(), "OK");
+		                d.setLocation(100,100);
+		                d.setVisible(true);
+					}
+					else
+						JOptionPane.showMessageDialog(instancia, "Debe Completar el formulario");
 				}
-				else
-					JOptionPane.showMessageDialog(instancia, "Debe Completar el formulario");
+				catch(Exception ex)
+				{
+					JOptionPane pane = new JOptionPane("Ocurrio un error al generar el alta del Paquete");
+	            	pane.setBackground(Color.RED);
+	                JDialog d = pane.createDialog(new JFrame(), "OK");
+	                d.setLocation(100,100);
+	                d.setVisible(true);
+				}
 			}
 		});
 
@@ -137,12 +156,30 @@ public class AltaPaquetesView extends JFrame {
 				
 				if (prod != null)				
 				{
-					paqueteView.agregarProducto(prod);
-					JOptionPane.showMessageDialog(instancia, "Se Ha agregado el producto");
+					if(prod.getEsPaquete())
+						JOptionPane.showMessageDialog(instancia, "No es Posible agregar un paquete dentro de otro paquete");
+					else
+						if (!existeProductoEnPaquete(prod))
+						{
+							paqueteView.agregarProducto(prod);
+							JOptionPane.showMessageDialog(instancia, "Se Ha agregado el producto");
+						}
+						else
+							JOptionPane.showMessageDialog(instancia, "El producto ya se encuentra agregado al paquete");	
 				}
 				else 
 					JOptionPane.showMessageDialog(instancia, "El producto no existe");
 			}
-		});
+		});			
+	}
+	
+	private boolean existeProductoEnPaquete(ProductoView prod)
+	{
+		for(ProductoView prodVw : this.paqueteView.getProductosView())
+		{			
+			if (prod.getCodigoProducto() == prodVw.getCodigoProducto())
+				return true;			
+		}
+		return false;
 	}
 }

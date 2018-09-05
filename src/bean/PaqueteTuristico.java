@@ -20,7 +20,6 @@ public class PaqueteTuristico extends Productos {
 	@ManyToMany(cascade = CascadeType.MERGE)
 	@JoinTable(name="paquete_producto", joinColumns=@JoinColumn(name="paquete_id"), inverseJoinColumns=@JoinColumn(name="producto_id"))
 	private List<Productos> productos;
-	private String descripcion;
 	private int descuento;
 	
 	public PaqueteTuristico()

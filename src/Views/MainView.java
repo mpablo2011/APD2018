@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import app.MainSistemaDeVentas;
 import app.VentaController;
 
 import javax.swing.JMenuBar;
@@ -18,6 +19,7 @@ import java.awt.event.ActionEvent;
 public class MainView extends JFrame {
 
 	private JPanel contentPane;
+	private static MainSistemaDeVentas sis = MainSistemaDeVentas.getInstancia();
 
 	/**
 	 * Launch the application.
@@ -26,6 +28,7 @@ public class MainView extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					sis.cargaInicial();
 					MainView frame = new MainView();
 					frame.setVisible(true);
 				} catch (Exception e) {
