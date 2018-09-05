@@ -162,7 +162,7 @@ public class AltaPaquetesView extends JFrame {
 						if (!existeProductoEnPaquete(prod))
 						{
 							paqueteView.agregarProducto(prod);
-							JOptionPane.showMessageDialog(instancia, "Se Ha agregado el producto");
+							JOptionPane.showMessageDialog(instancia, "Se ha agregado el producto");
 						}
 						else
 							JOptionPane.showMessageDialog(instancia, "El producto ya se encuentra agregado al paquete");	
