@@ -126,7 +126,7 @@ public class AltaClienteView extends JFrame {
 				int resultado = msv.altaCliente(dni, nombre, telefono, mail);
 				
 				if (resultado == 1) {
-	            	JOptionPane pane = new JOptionPane("Usuario dado de alta de forma correcta");
+	            	JOptionPane pane = new JOptionPane("Cliente dado de alta de forma correcta");
 	            	pane.setBackground(Color.GREEN);
 	                JDialog d = pane.createDialog(new JFrame(), "OK");
 	                d.setLocation(100,100);

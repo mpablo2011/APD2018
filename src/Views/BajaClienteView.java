@@ -81,14 +81,14 @@ public class BajaClienteView extends JFrame {
 					int resultado = msv.bajaCliente(dni);
 					
 					if (resultado == 1) {
-		            	JOptionPane pane = new JOptionPane("Usuario eliminado de forma correcta");
+		            	JOptionPane pane = new JOptionPane("Cliente eliminado de forma correcta");
 		            	pane.setBackground(Color.GREEN);
 		                JDialog d = pane.createDialog(new JFrame(), "OK");
 		                d.setLocation(100,100);
 		                d.setVisible(true);
 					}
 					if (resultado == -1) {
-		            	JOptionPane pane = new JOptionPane("Usuario inexistente.");
+		            	JOptionPane pane = new JOptionPane("Cliente inexistente.");
 		            	pane.setBackground(Color.RED);
 		                JDialog d = pane.createDialog(new JFrame(), "OK");
 		                d.setLocation(100,100);
