@@ -54,7 +54,7 @@ public class MainView extends JFrame {
 		JMenuItem mntmAltaDeUsuarios = new JMenuItem("Alta de cliente");
 		mntmAltaDeUsuarios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				AltaUsuarioView auv = new AltaUsuarioView();
+				AltaClienteView auv = new AltaClienteView();
 				auv.setVisible(true);
 				MainView.this.setVisible(false);
 				

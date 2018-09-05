@@ -13,6 +13,7 @@ import javax.swing.table.TableModel;
 
 import app.VentaController;
 import bean.Productos;
+import bean.Views.ClienteView;
 import bean.Views.VentaView;
 
 import javax.swing.JSplitPane;
@@ -35,6 +36,7 @@ public class AltaVentasView extends JFrame {
 	private JTextField dniField;
 	private JTable table;
 	private JTextField precioTotField;
+	private JTextField clienteNombreField;
 
 	/**
 	 * Launch the application.
@@ -63,14 +65,16 @@ public class AltaVentasView extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblCliente = new JLabel("Cliente");
-		lblCliente.setBounds(12, 24, 56, 16);
+		JLabel lblCliente = new JLabel("DNI Cliente:");
+		lblCliente.setBounds(12, 24, 73, 16);
 		contentPane.add(lblCliente);
 		
 		dniField = new JTextField();
-		dniField.setBounds(80, 21, 202, 22);
+		dniField.setBounds(97, 21, 185, 22);
 		contentPane.add(dniField);
 		dniField.setColumns(10);
+		
+		
 		
 		JButton btnBuscar = new JButton("Buscar");
 		btnBuscar.addActionListener(new ActionListener() {
@@ -93,6 +97,8 @@ public class AltaVentasView extends JFrame {
 					int resultado = vtc.VincularClienteAVenta(dni);
 					
 					if (resultado == 1) {
+						ClienteView c = vtc.getClienteView();
+						clienteNombreField.setText(c.getNombre());
 		            	JOptionPane pane = new JOptionPane("Cliente vinculado de forma correcta");
 		            	pane.setBackground(Color.GREEN);
 		                JDialog d = pane.createDialog(new JFrame(), "OK");
@@ -121,7 +127,7 @@ public class AltaVentasView extends JFrame {
 				AltaVentasView.this.setVisible(false);
 			}
 		});
-		btnAlta.setBounds(302, 58, 151, 25);
+		btnAlta.setBounds(302, 49, 151, 25);
 		contentPane.add(btnAlta);
 		
 		// Inicio de tabla de productos
@@ -189,9 +195,34 @@ public class AltaVentasView extends JFrame {
 		btnRegistrarVenta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				VentaController.getInstancia().grabarVenta();
+				
+            	JOptionPane pane = new JOptionPane("Venta registrada de forma satisfactoria.");
+            	pane.setBackground(Color.GREEN);
+                JDialog d = pane.createDialog(new JFrame(), "OK");
+                d.setLocation(100,100);
+                d.setVisible(true);
 			}
 		});
 		btnRegistrarVenta.setBounds(253, 386, 200, 25);
 		contentPane.add(btnRegistrarVenta);
+		
+		JLabel lblNombre = new JLabel("Nombre:");
+		lblNombre.setBounds(12, 53, 56, 16);
+		contentPane.add(lblNombre);
+		
+		clienteNombreField = new JTextField();
+		clienteNombreField.setEditable(false);
+		clienteNombreField.setBounds(97, 50, 185, 22);
+		contentPane.add(clienteNombreField);
+		clienteNombreField.setColumns(10);
+		
+		VentaController vtc = VentaController.getInstancia();
+		ClienteView c = vtc.getClienteView();
+		
+		if (c!=null)
+		{
+			dniField.setText(Integer.toString(c.getDni()));
+			clienteNombreField.setText(c.getNombre());
+		}
 	}
 }

@@ -1,6 +1,7 @@
 package Views;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -12,8 +13,11 @@ import app.VentaController;
 import bean.Views.ProductoView;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JDialog;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -66,7 +70,23 @@ public class buscarProductoView extends JFrame {
 				
 				int codprod = Integer.parseInt(codProducto.getText());
 				ProductoView pv = MainSistemaDeVentas.getInstancia().getProductoPorCodigo(codprod);
-				descField.setText(pv.getDescripcion());
+				
+				if (pv == null)
+				{
+	            	JOptionPane pane = new JOptionPane("Producto inexistente");
+	            	pane.setBackground(Color.RED);
+	                JDialog d = pane.createDialog(new JFrame(), "OK");
+	                d.setLocation(100,100);
+	                d.setVisible(true);
+	                
+	                codProducto.setText("");
+	                
+				}
+				else
+				{
+					descField.setText(pv.getDescripcion());	
+				}
+				
 				
 				
 			}
@@ -77,15 +97,22 @@ public class buscarProductoView extends JFrame {
 		JButton btnAgregar = new JButton("Agregar");
 		btnAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				int codprod = Integer.parseInt(codProducto.getText());
-				int cant = Integer.parseInt(cantField.getText());
-				
-				VentaController.getInstancia().agregarProducto(codprod, cant);
-				
-				AltaVentasView avv = new AltaVentasView();
-				avv.setVisible(true);
-				buscarProductoView.this.setVisible(false);
+
+				if (codProducto.getText().isEmpty() || cantField.getText().isEmpty()) {
+	            	JOptionPane pane = new JOptionPane("Complete todos los campos");
+	            	pane.setBackground(Color.RED);
+	                JDialog d = pane.createDialog(new JFrame(), "OK");
+	                d.setLocation(100,100);
+	                d.setVisible(true);
+				}
+				else {
+					int codprod = Integer.parseInt(codProducto.getText());
+					int cant = Integer.parseInt(cantField.getText());
+					VentaController.getInstancia().agregarProducto(codprod, cant);
+					AltaVentasView avv = new AltaVentasView();
+					avv.setVisible(true);
+					buscarProductoView.this.setVisible(false);
+				}
 			}
 		});
 		btnAgregar.setBounds(142, 181, 97, 25);

@@ -9,6 +9,7 @@ import bean.Cliente;
 import bean.ItemVenta;
 import bean.Productos;
 import bean.Ventas;
+import bean.Views.ClienteView;
 import bean.Views.ItemVentaView;
 import bean.Views.ProductoView;
 import bean.Views.VentaView;
@@ -68,6 +69,24 @@ public class VentaController {
 		vv.setTotalVenta(this.venta.getPrecioTotal());
 		
 		return vv;
+	}
+	
+	public ClienteView getClienteView()
+	{
+		ClienteView c = new ClienteView();
+		
+		if (this.venta.getCliente() != null)
+		{
+			c.setNombre(this.venta.getCliente().getNombre());
+			c.setDni(this.venta.getCliente().getDni());
+		}
+		else
+		{
+			c = null;
+		}
+		
+		
+		return c;
 	}
 	
 	public Vector getItemVentaVector()
