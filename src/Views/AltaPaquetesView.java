@@ -53,6 +53,7 @@ public class AltaPaquetesView extends JFrame {
 	private JTextField textFieldProducto;
 	
 	private static AltaPaquetesView instancia;
+	private JTextField textFieldDescProd;
 	public static AltaPaquetesView getInstancia() {
 		if (instancia == null)
 			instancia = new AltaPaquetesView();
@@ -141,7 +142,7 @@ public class AltaPaquetesView extends JFrame {
 
 		JButton btnAgregar = new JButton("Agregar Producto");
 		btnAgregar.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnAgregar.setBounds(151, 171, 130, 29);
+		btnAgregar.setBounds(151, 190, 130, 29);
 		contentPane.add(btnAgregar);
 		
 		JLabel lblProducto = new JLabel("Producto: ");
@@ -153,6 +154,17 @@ public class AltaPaquetesView extends JFrame {
 		textFieldProducto.setColumns(10);
 		textFieldProducto.setBounds(188, 115, 130, 26);
 		contentPane.add(textFieldProducto);
+		
+		JLabel lblDescripcionProducto = new JLabel("Descripcion: ");
+		lblDescripcionProducto.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblDescripcionProducto.setBounds(117, 151, 61, 14);
+		contentPane.add(lblDescripcionProducto);
+		
+		textFieldDescProd = new JTextField();
+		textFieldDescProd.setEditable(false);
+		textFieldDescProd.setBounds(188, 145, 130, 26);
+		contentPane.add(textFieldDescProd);
+		textFieldDescProd.setColumns(10);
 		btnAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -166,6 +178,7 @@ public class AltaPaquetesView extends JFrame {
 						if (!existeProductoEnPaquete(prod))
 						{
 							paqueteView.agregarProducto(prod);
+							textFieldDescProd.setText(prod.getDescripcion());
 							JOptionPane.showMessageDialog(instancia, "Se ha agregado el producto");
 						}
 						else
