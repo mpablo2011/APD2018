@@ -71,16 +71,17 @@ public class AltaPaquetesView extends JFrame {
 		contentPane.setLayout(null);
 
 		JLabel lblAlumno = new JLabel("Descripcion:");
-		lblAlumno.setBounds(28, 73, 61, 16);
+		lblAlumno.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblAlumno.setBounds(117, 60, 61, 16);
 		contentPane.add(lblAlumno);
 
 		textFieldDesc = new JTextField();
-		textFieldDesc.setBounds(135, 68, 130, 26);
+		textFieldDesc.setBounds(188, 55, 130, 26);
 		contentPane.add(textFieldDesc);
 		textFieldDesc.setColumns(10);
 
 		JButton btnRealizarAlta = new JButton("Realizar alta");
-		btnRealizarAlta.setBounds(59, 300, 117, 29);
+		btnRealizarAlta.setBounds(76, 229, 117, 29);
 		contentPane.add(btnRealizarAlta);
 		btnRealizarAlta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -113,7 +114,7 @@ public class AltaPaquetesView extends JFrame {
 		});
 
 		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(220, 300, 117, 29);
+		btnCancelar.setBounds(228, 229, 117, 29);
 		contentPane.add(btnCancelar);
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -124,30 +125,33 @@ public class AltaPaquetesView extends JFrame {
 		});
 
 		JLabel lblCarrera = new JLabel("Descuento:");
-		lblCarrera.setBounds(28, 124, 74, 16);
+		lblCarrera.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblCarrera.setBounds(117, 90, 74, 16);
 		contentPane.add(lblCarrera);
 
 		textFieldDescuento = new JTextField();
-		textFieldDescuento.setBounds(135, 119, 130, 26);
+		textFieldDescuento.setBounds(188, 85, 130, 26);
 		contentPane.add(textFieldDescuento);
 		textFieldDescuento.setColumns(10);
 
 		JLabel lblIngreseLosDatos = new JLabel("Ingrese los datos para generar el paquete");
 		lblIngreseLosDatos.setFont(new Font("Lucida Grande", Font.BOLD, 13));
-		lblIngreseLosDatos.setBounds(46, 17, 353, 16);
+		lblIngreseLosDatos.setBounds(76, 17, 304, 16);
 		contentPane.add(lblIngreseLosDatos);
 
 		JButton btnAgregar = new JButton("Agregar Producto");
-		btnAgregar.setBounds(135, 223, 130, 29);
+		btnAgregar.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnAgregar.setBounds(151, 171, 130, 29);
 		contentPane.add(btnAgregar);
 		
 		JLabel lblProducto = new JLabel("Producto: ");
-		lblProducto.setBounds(30, 169, 72, 14);
+		lblProducto.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblProducto.setBounds(117, 123, 72, 14);
 		contentPane.add(lblProducto);
 		
 		textFieldProducto = new JTextField();
 		textFieldProducto.setColumns(10);
-		textFieldProducto.setBounds(135, 166, 130, 26);
+		textFieldProducto.setBounds(188, 115, 130, 26);
 		contentPane.add(textFieldProducto);
 		btnAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

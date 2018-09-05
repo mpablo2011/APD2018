@@ -3,6 +3,7 @@ package Views;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -58,40 +59,49 @@ public class AltaVisitasView extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblDescripcion = new JLabel("Descripcion:");
-		lblDescripcion.setBounds(21, 29, 72, 14);
+		lblDescripcion.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblDescripcion.setBounds(100, 44, 72, 14);
 		contentPane.add(lblDescripcion);
 		
 		JLabel lblFecha = new JLabel("Fecha:");
-		lblFecha.setBounds(21, 54, 59, 14);
+		lblFecha.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblFecha.setBounds(100, 74, 59, 14);
 		contentPane.add(lblFecha);
 		
 		JLabel lblNombreGuia = new JLabel("Nombre Guia: ");
-		lblNombreGuia.setBounds(21, 79, 85, 14);
+		lblNombreGuia.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblNombreGuia.setBounds(100, 104, 85, 14);
 		contentPane.add(lblNombreGuia);
 		
 		JLabel lblPrecio = new JLabel("Precio:");
-		lblPrecio.setBounds(22, 129, 72, 14);
+		lblPrecio.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblPrecio.setBounds(100, 164, 72, 14);
 		contentPane.add(lblPrecio);
 		
 		textFieldDesc = new JTextField();
-		textFieldDesc.setBounds(124, 26, 142, 20);
+		textFieldDesc.setBounds(180, 41, 142, 20);
 		contentPane.add(textFieldDesc);
 		textFieldDesc.setColumns(10);
 		
 		textFieldFecha = new JTextField();
 		textFieldFecha.setColumns(10);
-		textFieldFecha.setBounds(124, 51, 142, 20);
+		textFieldFecha.setBounds(180, 69, 142, 20);
 		contentPane.add(textFieldFecha);
 		
 		textFieldNombre = new JTextField();
 		textFieldNombre.setColumns(10);
-		textFieldNombre.setBounds(124, 76, 142, 20);
+		textFieldNombre.setBounds(180, 99, 142, 20);
 		contentPane.add(textFieldNombre);
 		
 		textFieldPrecio = new JTextField();
 		textFieldPrecio.setColumns(10);
-		textFieldPrecio.setBounds(124, 128, 142, 20);
+		textFieldPrecio.setBounds(180, 159, 142, 20);
 		contentPane.add(textFieldPrecio);
+		
+		JLabel lblIngreseLosDatos = new JLabel("Ingrese los datos para generar la Visita Turistica");
+		lblIngreseLosDatos.setFont(new Font("Lucida Grande", Font.BOLD, 13));
+		lblIngreseLosDatos.setBounds(46, 11, 353, 16);
+		contentPane.add(lblIngreseLosDatos);
 		
 		JButton btnAceptar = new JButton("Aceptar");
 		btnAceptar.addActionListener(new ActionListener() {
@@ -117,7 +127,7 @@ public class AltaVisitasView extends JFrame {
 				}
 			}
 		});
-		btnAceptar.setBounds(52, 210, 89, 23);
+		btnAceptar.setBounds(100, 200, 89, 23);
 		contentPane.add(btnAceptar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
@@ -128,15 +138,16 @@ public class AltaVisitasView extends JFrame {
          		view.setVisible(true);
 			}
 		});
-		btnCancelar.setBounds(178, 210, 89, 23);
+		btnCancelar.setBounds(233, 200, 89, 23);
 		contentPane.add(btnCancelar);
 		
 		JLabel lblUbicacion = new JLabel("Ubicacion: ");
-		lblUbicacion.setBounds(20, 104, 73, 14);
+		lblUbicacion.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblUbicacion.setBounds(100, 134, 73, 14);
 		contentPane.add(lblUbicacion);
 		
 		textFieldUbicacion = new JTextField();
-		textFieldUbicacion.setBounds(124, 101, 142, 20);
+		textFieldUbicacion.setBounds(180, 129, 142, 20);
 		contentPane.add(textFieldUbicacion);
 		textFieldUbicacion.setColumns(10);
 	}

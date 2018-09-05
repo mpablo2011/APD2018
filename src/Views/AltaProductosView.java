@@ -2,6 +2,7 @@ package Views;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -45,11 +46,16 @@ public class AltaProductosView extends JFrame {
 		contentPane.setLayout(null);
 		
 		JComboBox<String> comboBox = new JComboBox<String>();
-		comboBox.setBounds(125, 49, 156, 20);
+		comboBox.setBounds(156, 62, 122, 20);
 		comboBox.addItem("");
 		comboBox.addItem("Pasajes");
 		comboBox.addItem("Alojamiento");
 		comboBox.addItem("Visitas Turisticas");
+		
+		JLabel lblIngreseLosDatos = new JLabel("Elija el tipo de producto: ");
+		lblIngreseLosDatos.setFont(new Font("Lucida Grande", Font.BOLD, 13));
+		lblIngreseLosDatos.setBounds(118, 11, 224, 16);
+		contentPane.add(lblIngreseLosDatos);
 		
 		contentPane.add(comboBox);
 		
@@ -82,7 +88,7 @@ public class AltaProductosView extends JFrame {
 		});
 		
 		JLabel lblTipo = new JLabel("Tipo:");
-		lblTipo.setBounds(31, 49, 46, 14);
+		lblTipo.setBounds(118, 65, 46, 14);
 		contentPane.add(lblTipo);
 		
 		JButton btnVolver = new JButton("Volver");
@@ -93,7 +99,7 @@ public class AltaProductosView extends JFrame {
 				view.setVisible(true);
 			}
 		});
-		btnVolver.setBounds(125, 147, 89, 23);
+		btnVolver.setBounds(168, 172, 89, 23);
 		contentPane.add(btnVolver);
 	}
 }

@@ -2,6 +2,7 @@ package Views;
 
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -62,58 +63,69 @@ public class AltaPasajesView extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblDescripcion = new JLabel("Descripcion:");
-		lblDescripcion.setBounds(21, 23, 81, 14);
+		lblDescripcion.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblDescripcion.setBounds(100, 61, 81, 14);
 		contentPane.add(lblDescripcion);
 		
 		textFieldDesc = new JTextField();
-		textFieldDesc.setBounds(112, 20, 154, 20);
+		textFieldDesc.setBounds(178, 58, 154, 20);
 		contentPane.add(textFieldDesc);
 		textFieldDesc.setColumns(10);
 		
 		JLabel lblPrecio = new JLabel("Precio: ");
-		lblPrecio.setBounds(23, 82, 56, 14);
+		lblPrecio.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblPrecio.setBounds(100, 111, 56, 14);
 		contentPane.add(lblPrecio);
 		
 		JLabel lblFechaPasaje = new JLabel("Fecha Pasaje: ");
-		lblFechaPasaje.setBounds(23, 57, 71, 14);
+		lblFechaPasaje.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblFechaPasaje.setBounds(100, 86, 71, 14);
 		contentPane.add(lblFechaPasaje);
 		
 		JLabel lblAerolinea = new JLabel("Aerolinea:");
-		lblAerolinea.setBounds(21, 107, 69, 14);
+		lblAerolinea.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblAerolinea.setBounds(100, 136, 69, 14);
 		contentPane.add(lblAerolinea);
 		
 		JLabel lblOrigen = new JLabel("Origen:");
-		lblOrigen.setBounds(21, 132, 46, 14);
+		lblOrigen.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblOrigen.setBounds(100, 161, 46, 14);
 		contentPane.add(lblOrigen);
 		
 		JLabel lblDestino = new JLabel("Destino:");
-		lblDestino.setBounds(21, 157, 46, 14);
+		lblDestino.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblDestino.setBounds(100, 186, 46, 14);
 		contentPane.add(lblDestino);
 		
 		textFieldFecha = new JTextField();
 		textFieldFecha.setColumns(10);
-		textFieldFecha.setBounds(112, 54, 154, 20);
+		textFieldFecha.setBounds(178, 83, 154, 20);
 		contentPane.add(textFieldFecha);
 		
 		textFieldPrecio = new JTextField();
 		textFieldPrecio.setColumns(10);
-		textFieldPrecio.setBounds(112, 79, 154, 20);
+		textFieldPrecio.setBounds(178, 108, 154, 20);
 		contentPane.add(textFieldPrecio);
 		
 		textFieldAerolinea = new JTextField();
 		textFieldAerolinea.setColumns(10);
-		textFieldAerolinea.setBounds(112, 104, 154, 20);
+		textFieldAerolinea.setBounds(178, 133, 154, 20);
 		contentPane.add(textFieldAerolinea);
 		
 		textFieldOrigen = new JTextField();
 		textFieldOrigen.setColumns(10);
-		textFieldOrigen.setBounds(112, 129, 154, 20);
+		textFieldOrigen.setBounds(178, 158, 154, 20);
 		contentPane.add(textFieldOrigen);
 		
 		textFieldDestino = new JTextField();
 		textFieldDestino.setColumns(10);
-		textFieldDestino.setBounds(112, 154, 154, 20);
+		textFieldDestino.setBounds(178, 183, 154, 20);
 		contentPane.add(textFieldDestino);
+		
+		JLabel lblIngreseLosDatos = new JLabel("Ingrese los datos para generar el Pasaje");
+		lblIngreseLosDatos.setFont(new Font("Lucida Grande", Font.BOLD, 13));
+		lblIngreseLosDatos.setBounds(95, 23, 277, 16);
+		contentPane.add(lblIngreseLosDatos);
 		
 		JButton btnAceptar = new JButton("Aceptar");
 		btnAceptar.addActionListener(new ActionListener() {
@@ -141,7 +153,7 @@ public class AltaPasajesView extends JFrame {
 				}
 			}
 		});
-		btnAceptar.setBounds(55, 214, 89, 23);
+		btnAceptar.setBounds(100, 214, 89, 23);
 		contentPane.add(btnAceptar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
@@ -153,7 +165,7 @@ public class AltaPasajesView extends JFrame {
 			}
 		});
 		
-		btnCancelar.setBounds(177, 214, 89, 23);
+		btnCancelar.setBounds(243, 213, 89, 23);
 		contentPane.add(btnCancelar);
 	}
 }

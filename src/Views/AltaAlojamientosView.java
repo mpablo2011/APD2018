@@ -3,6 +3,7 @@ package Views;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -59,58 +60,69 @@ public class AltaAlojamientosView extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblDescripcion = new JLabel("Descripcion: ");
-		lblDescripcion.setBounds(23, 23, 68, 14);
+		lblDescripcion.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblDescripcion.setBounds(100, 49, 68, 14);
 		contentPane.add(lblDescripcion);
 		
 		JLabel lblFechaDesde = new JLabel("Fecha desde: ");
-		lblFechaDesde.setBounds(23, 48, 83, 14);
+		lblFechaDesde.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblFechaDesde.setBounds(100, 74, 83, 14);
 		contentPane.add(lblFechaDesde);
 		
 		JLabel lblFechaHasta = new JLabel("Fecha hasta: ");
-		lblFechaHasta.setBounds(23, 73, 67, 14);
+		lblFechaHasta.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblFechaHasta.setBounds(100, 99, 67, 14);
 		contentPane.add(lblFechaHasta);
 		
 		JLabel lblNewLabel = new JLabel("Nombre:");
-		lblNewLabel.setBounds(23, 99, 68, 14);
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblNewLabel.setBounds(100, 126, 68, 14);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblPrecio = new JLabel("Precio: ");
-		lblPrecio.setBounds(23, 124, 73, 14);
+		lblPrecio.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblPrecio.setBounds(100, 151, 73, 14);
 		contentPane.add(lblPrecio);
 		
 		JLabel lblUbicacion = new JLabel("Ubicacion: ");
-		lblUbicacion.setBounds(23, 152, 58, 14);
+		lblUbicacion.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblUbicacion.setBounds(100, 176, 58, 14);
 		contentPane.add(lblUbicacion);
 		
 		textFieldDesc = new JTextField();
-		textFieldDesc.setBounds(101, 20, 144, 20);
+		textFieldDesc.setBounds(191, 45, 144, 20);
 		contentPane.add(textFieldDesc);
 		textFieldDesc.setColumns(10);
 		
 		textFieldFechaDesde = new JTextField();
 		textFieldFechaDesde.setColumns(10);
-		textFieldFechaDesde.setBounds(101, 45, 144, 20);
+		textFieldFechaDesde.setBounds(191, 70, 144, 20);
 		contentPane.add(textFieldFechaDesde);
 		
 		textFieldFechaHasta = new JTextField();
 		textFieldFechaHasta.setColumns(10);
-		textFieldFechaHasta.setBounds(100, 70, 144, 20);
+		textFieldFechaHasta.setBounds(191, 96, 144, 20);
 		contentPane.add(textFieldFechaHasta);
 		
 		textFieldNombre = new JTextField();
 		textFieldNombre.setColumns(10);
-		textFieldNombre.setBounds(101, 96, 144, 20);
+		textFieldNombre.setBounds(191, 121, 144, 20);
 		contentPane.add(textFieldNombre);
 		
 		textFieldPrecio = new JTextField();
 		textFieldPrecio.setColumns(10);
-		textFieldPrecio.setBounds(101, 121, 144, 20);
+		textFieldPrecio.setBounds(191, 149, 144, 20);
 		contentPane.add(textFieldPrecio);
 		
 		textFieldUbicacion = new JTextField();
 		textFieldUbicacion.setColumns(10);
-		textFieldUbicacion.setBounds(101, 149, 144, 20);
+		textFieldUbicacion.setBounds(191, 173, 144, 20);
 		contentPane.add(textFieldUbicacion);
+		
+		JLabel lblIngreseLosDatos = new JLabel("Ingrese los datos para generar el Alojamiento");
+		lblIngreseLosDatos.setFont(new Font("Lucida Grande", Font.BOLD, 13));
+		lblIngreseLosDatos.setBounds(81, 11, 353, 16);
+		contentPane.add(lblIngreseLosDatos);
 		
 		JButton btnAceptar = new JButton("Aceptar");
 		btnAceptar.addActionListener(new ActionListener() {
@@ -137,7 +149,7 @@ public class AltaAlojamientosView extends JFrame {
 				}
 			}
 		});
-		btnAceptar.setBounds(51, 204, 89, 23);
+		btnAceptar.setBounds(100, 216, 89, 23);
 		contentPane.add(btnAceptar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
@@ -148,7 +160,7 @@ public class AltaAlojamientosView extends JFrame {
          		view.setVisible(true);
 			}
 		});
-		btnCancelar.setBounds(165, 204, 89, 23);
+		btnCancelar.setBounds(246, 216, 89, 23);
 		contentPane.add(btnCancelar);
 	}
 
