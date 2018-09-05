@@ -110,41 +110,15 @@ public class MainSistemaDeVentas {
 	
 	public int altaCliente(int dni, String nombre, int telefono, String mail) {
 		
-		ClienteSRV srv = new ClienteSRV();
-		Cliente aux = srv.buscarCliente(dni);
+		ClienteController cc = ClienteController.getInstancia();
 		
-		if(aux == null)
-		{
-			Cliente cli = new Cliente();
-			cli.setDni(dni);
-			cli.setMail(mail);
-			cli.setNombre(nombre);
-			cli.setTelefono(telefono);
-			
-			srv.grabarCliente(cli);
-			
-			return 1;
-		}
-		else
-		{
-			return -1;
-		}
+		return cc.altaCliente(dni, nombre, telefono, mail);
 	}
 
 	public int bajaCliente(int dni) {
 
-		ClienteSRV srv = new ClienteSRV();
-		Cliente cli = srv.buscarCliente(dni);
-		
-		if(cli == null)
-		{	
-			return -1;
-		}
-		else
-		{
-			srv.eliminarCliente(cli);
-			return 1;
-		}
+		ClienteController cc = ClienteController.getInstancia();
+		return cc.bajaCliente(dni);
 	}	
 	
 	//INICIO ABM PRODUCTOS

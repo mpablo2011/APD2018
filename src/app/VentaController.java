@@ -35,8 +35,8 @@ public class VentaController {
 
 	public int VincularClienteAVenta(int dni) {
 		
-		ClienteSRV srv = new ClienteSRV();
-		Cliente cli = srv.buscarCliente(dni);
+		ClienteController cc = ClienteController.getInstancia();
+		Cliente cli = cc.buscarCliente(dni);
 		
 		if(cli == null)
 		{	
