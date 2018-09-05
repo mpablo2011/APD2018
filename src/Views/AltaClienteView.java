@@ -16,6 +16,8 @@ import javax.swing.JOptionPane;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.Font;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -59,40 +61,45 @@ public class AltaClienteView extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNombre = new JLabel("Nombre:");
-		lblNombre.setBounds(10, 10, 100, 20);
+		lblNombre.setBounds(53, 44, 100, 20);
 		contentPane.add(lblNombre);
 		
 		nombreField = new JTextField();
-		nombreField.setBounds(135, 10, 180, 20);
+		nombreField.setBounds(135, 44, 180, 20);
 		contentPane.add(nombreField);
 		nombreField.setColumns(10);
 		
 		JLabel lblDNI = new JLabel("DNI:");
-		lblDNI.setBounds(10, 50, 100, 20);
+		lblDNI.setBounds(53, 84, 66, 20);
 		contentPane.add(lblDNI);
 		
 		dniField = new JTextField();
 		dniField.setColumns(10);
-		dniField.setBounds(135, 50, 180, 20);
+		dniField.setBounds(135, 84, 180, 20);
 		contentPane.add(dniField);
 		
 		JLabel lblTelefono = new JLabel("Telefono:");
-		lblTelefono.setBounds(10, 90, 100, 20);
+		lblTelefono.setBounds(53, 124, 100, 20);
 		contentPane.add(lblTelefono);
 		
 		telefonoField = new JTextField();
 		telefonoField.setColumns(10);
-		telefonoField.setBounds(135, 90, 180, 20);
+		telefonoField.setBounds(135, 124, 180, 20);
 		contentPane.add(telefonoField);
 		
 		JLabel lblMail = new JLabel("Mail:");
-		lblMail.setBounds(10, 130, 100, 20);
+		lblMail.setBounds(53, 164, 100, 20);
 		contentPane.add(lblMail);
 		
 		mailField = new JTextField();
 		mailField.setColumns(10);
-		mailField.setBounds(135, 130, 180, 20);
+		mailField.setBounds(135, 165, 180, 20);
 		contentPane.add(mailField);
+		
+		JLabel lblIngreseLosDatos = new JLabel("Ingrese los datos para generar el Alta de Cliente");
+		lblIngreseLosDatos.setFont(new Font("Lucida Grande", Font.BOLD, 13));
+		lblIngreseLosDatos.setBounds(46, 17, 353, 16);
+		contentPane.add(lblIngreseLosDatos);
 		
 		JButton btnAceptar = new JButton("Aceptar");
 		btnAceptar.addActionListener(new ActionListener() {
@@ -137,7 +144,7 @@ public class AltaClienteView extends JFrame {
 			
 			}
 		});
-		btnAceptar.setBounds(218, 170, 97, 25);
+		btnAceptar.setBounds(218, 207, 97, 25);
 		contentPane.add(btnAceptar);
 		
 		JButton volverButton = new JButton("Volver");
@@ -148,7 +155,7 @@ public class AltaClienteView extends JFrame {
 				AltaClienteView.this.setVisible(false);
 			}
 		});
-		volverButton.setBounds(109, 170, 97, 25);
+		volverButton.setBounds(53, 207, 97, 25);
 		contentPane.add(volverButton);
 	}
 }
