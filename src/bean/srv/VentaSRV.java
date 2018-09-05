@@ -14,6 +14,5 @@ public class VentaSRV {
 	public void grabarVenta(Ventas vta){
 		dao.grabarVenta(vta);
 	}
-
 }
 

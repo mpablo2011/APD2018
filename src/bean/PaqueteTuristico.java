@@ -36,7 +36,14 @@ public class PaqueteTuristico extends Productos {
 	}	
 	
 	public float getPrecio() {
-		return 0;
+		float total = 0;
+		
+		for(Productos prod : this.productos)
+		{		
+			total = total + prod.getPrecio();
+		}
+		
+		return total - this.descuento;
 	}
 
 	public Collection<Productos> getProductos() {

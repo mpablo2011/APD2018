@@ -63,11 +63,10 @@ public class VentaController {
 		
 		return vv;
 	}
-
-	public void grabarVenta() {
+	
+	public void grabarVenta() 
+	{
 		VentaSRV srv = new VentaSRV();
-		
 		srv.grabarVenta(this.venta);
 	}
-
 }
