@@ -156,13 +156,16 @@ public class AltaPaquetesView extends JFrame {
 				
 				if (prod != null)				
 				{
-					if (!existeProducto(prod))
-					{
-						paqueteView.agregarProducto(prod);
-						JOptionPane.showMessageDialog(instancia, "Se Ha agregado el producto");
-					}
+					if(prod.getEsPaquete())
+						JOptionPane.showMessageDialog(instancia, "No es Posible agregar un paquete dentro de otro paquete");
 					else
-						JOptionPane.showMessageDialog(instancia, "El producto ya se encuentra agregado al paquete");	
+						if (!existeProductoEnPaquete(prod))
+						{
+							paqueteView.agregarProducto(prod);
+							JOptionPane.showMessageDialog(instancia, "Se Ha agregado el producto");
+						}
+						else
+							JOptionPane.showMessageDialog(instancia, "El producto ya se encuentra agregado al paquete");	
 				}
 				else 
 					JOptionPane.showMessageDialog(instancia, "El producto no existe");
@@ -170,10 +173,10 @@ public class AltaPaquetesView extends JFrame {
 		});			
 	}
 	
-	private boolean existeProducto(ProductoView prod)
+	private boolean existeProductoEnPaquete(ProductoView prod)
 	{
 		for(ProductoView prodVw : this.paqueteView.getProductosView())
-		{
+		{			
 			if (prod.getCodigoProducto() == prodVw.getCodigoProducto())
 				return true;			
 		}

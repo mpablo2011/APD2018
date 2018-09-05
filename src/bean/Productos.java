@@ -41,6 +41,6 @@ public abstract class Productos implements Serializable {
 	
 	public ProductoView getView()
 	{
-		return new ProductoView(codigoProducto,descripcion);
+		return new ProductoView(this.codigoProducto,this.descripcion);
 	}
 }

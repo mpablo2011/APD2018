@@ -133,7 +133,21 @@ public class MainSistemaDeVentas {
 	
 	public ProductoView getProductoPorCodigo(int codigo) {
 		Productos producto = new ProductoSRV().getProductoPorCodigo(codigo);
-		return producto != null ? producto.getView() : null;		
+		
+		if (producto != null)
+		{
+			ProductoView prodView = producto.getView();
+			String clase = producto.getClass().getSimpleName();
+			
+			if(clase.equals("PaqueteTuristico"))
+				prodView.setEsPaquete(true);
+			else
+				prodView.setEsPaquete(false);
+			
+			return prodView;
+		}
+		
+		return null;		
 	}
 
 	public int bajaCliente(int dni) {
