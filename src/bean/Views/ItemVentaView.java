@@ -1,5 +1,7 @@
 package bean.Views;
 
+import antlr.collections.impl.Vector;
+
 public class ItemVentaView {
 	
 	int codigoProducto;

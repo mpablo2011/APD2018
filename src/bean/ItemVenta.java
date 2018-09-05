@@ -1,6 +1,7 @@
 package bean;
 
 import java.io.Serializable;
+import java.util.Vector;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+
+
 
 @Entity
 public class ItemVenta implements Serializable{
@@ -41,5 +44,13 @@ public class ItemVenta implements Serializable{
 	
 	public void setCantidad(int cantidad) {
 		this.cantidad = cantidad;
+	}
+	
+	public Vector<String> itemToVector() {
+		Vector<String> vector=new Vector<String>();
+		vector.add(Integer.toString(this.getProducto().getCodigoProducto()));
+		vector.add(this.getProducto().getDescripcion());
+		vector.add(Integer.toString(this.getCantidad()));
+		return vector;
 	}
 }

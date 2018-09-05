@@ -35,6 +35,18 @@ public abstract class Productos implements Serializable {
 	
 	public abstract float getPrecio();
 		
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public void setCodigoProducto(int codigoProducto) {
+		this.codigoProducto = codigoProducto;
+	}
+
 	public int getCodigoProducto() {
 		return this.codigoProducto;
 	}

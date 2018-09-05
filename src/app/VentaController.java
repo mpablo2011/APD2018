@@ -1,9 +1,15 @@
 package app;
 
+import java.awt.List;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Vector;
+
 import bean.Cliente;
 import bean.ItemVenta;
 import bean.Productos;
 import bean.Ventas;
+import bean.Views.ItemVentaView;
 import bean.Views.ProductoView;
 import bean.Views.VentaView;
 import bean.srv.ClienteSRV;
@@ -62,6 +68,15 @@ public class VentaController {
 		vv.setTotalVenta(this.venta.getPrecioTotal());
 		
 		return vv;
+	}
+	
+	public Vector getItemVentaVector()
+	{
+		Vector vector=new Vector();
+		vector = this.venta.gerProductosVector();
+		return vector;
+		
+		
 	}
 	
 	public void grabarVenta() 

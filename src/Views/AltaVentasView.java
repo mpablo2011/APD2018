@@ -2,16 +2,21 @@ package Views;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 import app.VentaController;
+import bean.Productos;
 import bean.Views.VentaView;
 
 import javax.swing.JSplitPane;
+import javax.swing.JTable;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -19,8 +24,10 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 
 import java.awt.event.ActionListener;
+import java.util.Vector;
 import java.awt.event.ActionEvent;
-import javax.swing.JTable;
+
+import javax.swing.JScrollPane;
 
 public class AltaVentasView extends JFrame {
 
@@ -117,12 +124,23 @@ public class AltaVentasView extends JFrame {
 		btnAlta.setBounds(302, 58, 151, 25);
 		contentPane.add(btnAlta);
 		
+		// Inicio de tabla de productos
+		Vector<String> columnas = new Vector<String>();
+		columnas.add("Codigo Producto");
+		columnas.add("Discripción");
+		columnas.add("Cantidad");
+		Vector data = VentaController.getInstancia().getItemVentaVector();
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(12, 115, 460, 131);
+		contentPane.add(scrollPane);
+		TableModel dtm = new DefaultTableModel(data,columnas);
 		table = new JTable();
-		table.setBounds(12, 115, 460, 131);
-		contentPane.add(table);
+		table.setModel(dtm);
+		scrollPane.setViewportView(table);
 		
 		JLabel lblProductos = new JLabel("Productos");
-		lblProductos.setBounds(12, 88, 56, 16);
+		lblProductos.setBounds(12, 88, 70, 16);
 		contentPane.add(lblProductos);
 		
 		JButton btnAgregarProducto = new JButton("Agregar Producto");

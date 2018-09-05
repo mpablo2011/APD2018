@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import java.util.Vector;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -79,5 +80,15 @@ public class Ventas implements Serializable{
 	
 	public void setFechaVenta(Date fechaVenta) {
 		this.fechaVenta = fechaVenta;
+	}
+	
+	public Vector gerProductosVector() 
+	{
+		Vector vector=new Vector();
+		
+		for(ItemVenta i : this.itemsVenta)
+			vector.add(i.itemToVector());
+
+		return vector;
 	}
 }
